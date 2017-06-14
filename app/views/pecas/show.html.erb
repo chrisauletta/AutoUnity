@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @peca.nome %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @peca.tipo %>
+</p>
+
+<p>
+  <strong>Fabricante:</strong>
+  <%= @peca.fabricante %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @peca.preco %>
+</p>
+
+<%= link_to 'Edit', edit_peca_path(@peca) %> |
+<%= link_to 'Back', pecas_path %>
