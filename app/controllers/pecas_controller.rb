@@ -13,6 +13,7 @@ class PecasController < ApplicationController
   # GET /pecas/new
   def new
     @peca = Peca.new
+    @fornecedors = Fornecedor.all
   end
 
   # GET /pecas/1/edit

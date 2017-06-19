@@ -1,0 +1,78 @@
+<h1>New Peca</h1>
+<div class="container">
+<div class="span16">
+  <div class="box pattern pattern-sandstone">
+    <div class="box-header">
+      <i class="icon-table"></i>
+        <h5>
+          Ocorrencia
+        </h5>
+      </div>
+       <div class="row">
+         <div id="acct-password-row" class="span5">
+           <fieldset>
+             <legend>Cadastro</legend><br>
+
+				<%= form_for @peca do |form| %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :peca_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :peca_tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fabricante %>
+    <%= form.text_field :fabricante, id: :peca_fabricante %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preco %>
+    <%= form.text_field :preco, id: :peca_preco %>
+  </div>
+
+
+		</fieldset>
+		</div>
+		<div id="acct-verify-row" class="span9">
+          <fieldset>
+            <legend>Fornecedor</legend><br>
+
+             <div class="box-content box-table">
+				<table id="tabela_index" class="table table-hover table-bordered tablesorter">
+					  <thead>
+					    <tr>
+					      <th class="bs-checkbox "></th>
+					      <th>Nome fornecedor</th>
+					      <th>Telefone</th>
+					    </tr>
+					  </thead>
+
+					  <tbody>
+					    <% @fornecedors.each do |fornecedor| %>
+					      <tr>
+					        <td class="bs-checkbox "><%= form.check_box :fornecedor_id, fornecedor.id%></td>
+					        <td><%= fornecedor.nome_fornecedor %></td>
+					        <td><%= fornecedor.telefone %></td>
+					      </tr>
+					    <% end %>
+					  </tbody>
+				</table>
+			</div>
+
+		  </fieldset>
+		</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+	</div>
+</div>
+</div>
+</div>
+<%= link_to 'Back', pecas_path %>
