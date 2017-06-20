@@ -3,6 +3,7 @@ class PecasController < ApplicationController
 
   # GET /pecas
   def index
+    Peca.new
     @pecas = Peca.all
   end
 
