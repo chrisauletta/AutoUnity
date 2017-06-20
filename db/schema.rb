@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614203327) do
+ActiveRecord::Schema.define(version: 20170620032435) do
+
+  create_table "estoques", force: :cascade do |t|
+    t.integer "peca_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fornecedors", force: :cascade do |t|
     t.string "nome_fornecedor"
@@ -28,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170614203327) do
     t.decimal "preco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "fornecedor_id"
   end
 
 end

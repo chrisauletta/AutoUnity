@@ -1,0 +1,33 @@
+<h1>Pecas</h1>
+<div class="span16">
+  <div class="box pattern pattern-sandstone">
+    <div class="box-header">
+      <i class="icon-table"></i>
+        <h5>
+          Peças
+        </h5>
+      </div>
+    <div class="box-content box-table">
+<table id="tabela_index" class="table table-hover table-bordered tablesorter">
+ <thead>
+    <tr>
+      <th><input type="checkbox" name="peca"></th>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Fabricante</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pecas_e.each do |peca| %>
+  	<tr>
+  		<td><%= check_box_tag est[pecaid][], peca.id%></td>
+  		<td><%= peca.nome %></td>
+  		<td><%= peca.tipo %></td>
+  		<td><%= peca.fabricante %></td>
+  	</tr>
+  <% end %>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  </div>

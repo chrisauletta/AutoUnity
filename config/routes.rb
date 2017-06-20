@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :fornecedors
   resources :pecas
-  get "peca/teste" => "pecas#teste"
+  get "/estoque" => "estoque#index"
 end
