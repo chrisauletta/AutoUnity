@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620032435) do
+ActiveRecord::Schema.define(version: 20170703155953) do
+
+  create_table "clientes", force: :cascade do |t|
+    t.string "nome"
+    t.string "oficio"
+    t.string "rua"
+    t.string "bairro"
+    t.string "cidade"
+    t.string "uf"
+    t.string "cep"
+    t.string "telefone"
+    t.string "celular"
+    t.string "comercial"
+    t.string "email"
+    t.string "observacoes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "estoques", force: :cascade do |t|
     t.integer "peca_id"

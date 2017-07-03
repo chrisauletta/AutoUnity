@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clientes
   resources :fornecedors
   resources :pecas
   get "/estoque" => "estoque#index"
