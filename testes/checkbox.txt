@@ -1,4 +1,19 @@
+controller
+class EstoqueController < ApplicationController
 
+	def index
+		@pecas_e = Peca.all
+	end
+
+	def salva
+		estoque = Estoque.new 
+		estoque.peca_id = params["peca_id"]
+		estoque.save
+
+	end
+end
+
+Index
 <div class="box-content box-table">
 <%=form_tag estoque_edit_path %>
 <table id="tabela_index" class="table table-hover table-bordered tablesorter">
@@ -13,10 +28,10 @@
   <tbody>
   <% @pecas_e.each do |peca| %>
   	<tr>
+  		<td><%= check_box_tag "peca_id[]", peca.id%></td>
   		<td><%= peca.nome %></td>
   		<td><%= peca.tipo %></td>
   		<td><%= peca.fabricante %></td>
-      <td><%= link_to '=>', estoque_edit_path(peca), method: :post%></td>
   	</tr>
   <% end %>
 
