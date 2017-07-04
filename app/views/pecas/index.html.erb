@@ -13,6 +13,7 @@
   <table id="tabela_index" class="table table-hover table-bordered tablesorter">
   <thead>
     <tr>
+      <th class="bs-checkbox "></th>
       <th>Nome</th>
       <th>Tipo</th>
       <th>Fabricante</th>
@@ -23,14 +24,14 @@
 
   <tbody>
     <% @pecas.each do |peca| %>
-      <tr>
+        <tr data-index="0" class="selected">
+        <td class="bs-checkbox "></td>
         <td><%= peca.nome %></td>
         <td><%= peca.tipo %></td>
         <td><%= peca.fabricante %></td>
         <td><%= peca.preco %></td>
-        <td><%= link_to 'Show', peca, class:"btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_peca_path(peca), class:"btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', peca, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-danger" %></td>
+        <td><%= link_to 'Editar', edit_peca_path(peca), class:"btn btn-default" %></td>
+        <td><%= link_to 'Deletar', peca, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,3 +44,5 @@
 <br>
 
 <%= link_to 'New Peca', new_peca_path, class:"btn btn-primary" %>
+
+                   

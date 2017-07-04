@@ -24,7 +24,7 @@ class FornecedorsController < ApplicationController
     @fornecedor = Fornecedor.new(fornecedor_params)
 
     if @fornecedor.save
-      redirect_to @fornecedor, notice: 'Fornecedor was successfully created.'
+      redirect_to fornecedors_path , notice: 'Fornecedor criado'
     else
       render :new
     end

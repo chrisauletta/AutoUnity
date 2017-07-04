@@ -31,7 +31,13 @@
     <%= form.text_field :preco, id: :peca_preco %>
   </div>
 
+  <div class="field">
+    <%= form.label :fornecedors %>
+    <%= form.collection_select :fornecedor_id, @fornecedors, :id, :nome_fornecedor %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+      <%= form.submit "Cadastrar", class:"btn btn-default"  %>
+
   </div>
 <% end %>
