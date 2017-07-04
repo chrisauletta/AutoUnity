@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @orcamento.status %>
+</p>
+
+<p>
+  <strong>Quilometragem:</strong>
+  <%= @orcamento.quilometragem %>
+</p>
+
+<p>
+  <strong>Valor total:</strong>
+  <%= @orcamento.valor_total %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @orcamento.descricao %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @orcamento.cliente %>
+</p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @orcamento.veiculo %>
+</p>
+
+<%= link_to 'Edit', edit_orcamento_path(@orcamento) %> |
+<%= link_to 'Back', orcamentos_path %>

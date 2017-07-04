@@ -1,0 +1,47 @@
+<%= form_with(model: orcamento, local: true) do |form| %>
+  <% if orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :orcamento_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quilometragem %>
+    <%= form.number_field :quilometragem, id: :orcamento_quilometragem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor_total %>
+    <%= form.number_field :valor_total, id: :orcamento_valor_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao, id: :orcamento_descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id, id: :orcamento_cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :veiculo_id %>
+    <%= form.text_field :veiculo_id, id: :orcamento_veiculo_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
