@@ -23,7 +23,7 @@
         <td><%= veiculo.modelo %></td>
         <td><%= veiculo.ano %></td>
         <td><%= veiculo.cor %></td>
-        <td><%= veiculo.id_cliente %></td>
+        <td><%= veiculo.cliente.nome %></td>
         <td><%= link_to 'Show', veiculo %></td>
         <td><%= link_to 'Edit', edit_veiculo_path(veiculo) %></td>
         <td><%= link_to 'Destroy', veiculo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

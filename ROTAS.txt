@@ -1,0 +1,44 @@
+orcamentos GET    /orcamentos(.:format)           orcamentos#index
+                POST   /orcamentos(.:format)           orcamentos#create
+  new_orcamento GET    /orcamentos/new(.:format)       orcamentos#new
+ edit_orcamento GET    /orcamentos/:id/edit(.:format)  orcamentos#edit
+      orcamento GET    /orcamentos/:id(.:format)       orcamentos#show
+                PATCH  /orcamentos/:id(.:format)       orcamentos#update
+                PUT    /orcamentos/:id(.:format)       orcamentos#update
+                DELETE /orcamentos/:id(.:format)       orcamentos#destroy
+       clientes GET    /clientes(.:format)             clientes#index
+                POST   /clientes(.:format)             clientes#create
+    new_cliente GET    /clientes/new(.:format)         clientes#new
+   edit_cliente GET    /clientes/:id/edit(.:format)    clientes#edit
+        cliente GET    /clientes/:id(.:format)         clientes#show
+                PATCH  /clientes/:id(.:format)         clientes#update
+                PUT    /clientes/:id(.:format)         clientes#update
+                DELETE /clientes/:id(.:format)         clientes#destroy
+    fornecedors GET    /fornecedors(.:format)          fornecedors#index
+                POST   /fornecedors(.:format)          fornecedors#create
+ new_fornecedor GET    /fornecedors/new(.:format)      fornecedors#new
+edit_fornecedor GET    /fornecedors/:id/edit(.:format) fornecedors#edit
+     fornecedor GET    /fornecedors/:id(.:format)      fornecedors#show
+                PATCH  /fornecedors/:id(.:format)      fornecedors#update
+                PUT    /fornecedors/:id(.:format)      fornecedors#update
+                DELETE /fornecedors/:id(.:format)      fornecedors#destroy
+          pecas GET    /pecas(.:format)                pecas#index
+                POST   /pecas(.:format)                pecas#create
+       new_peca GET    /pecas/new(.:format)            pecas#new
+      edit_peca GET    /pecas/:id/edit(.:format)       pecas#edit
+           peca GET    /pecas/:id(.:format)            pecas#show
+                PATCH  /pecas/:id(.:format)            pecas#update
+                PUT    /pecas/:id(.:format)            pecas#update
+                DELETE /pecas/:id(.:format)            pecas#destroy
+       veiculos GET    /veiculos(.:format)             veiculos#index
+                POST   /veiculos(.:format)             veiculos#create
+    new_veiculo GET    /veiculos/new(.:format)         veiculos#new
+   edit_veiculo GET    /veiculos/:id/edit(.:format)    veiculos#edit
+        veiculo GET    /veiculos/:id(.:format)         veiculos#show
+                PATCH  /veiculos/:id(.:format)         veiculos#update
+                PUT    /veiculos/:id(.:format)         veiculos#update
+                DELETE /veiculos/:id(.:format)         veiculos#destroy
+        estoque GET    /estoque(.:format)              estoque#index
+   estoque_edit POST   /estoque/edit(.:format)         estoque#salva
+     peca_teste GET    /peca/teste(.:format)           pecas#teste
+           root GET    /                               pecas#index

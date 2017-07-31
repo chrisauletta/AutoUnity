@@ -16,11 +16,7 @@ gem 'jquery'
 gem 'therubyracer'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
-<<<<<<< HEAD
-=======
 
 gem 'twitter-bootstrap-rails'
 
 gem "bootstrap-table-rails"
-
->>>>>>> 90c59c761251a545a4949a742732909ae4442917

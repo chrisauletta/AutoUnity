@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170703173741) do
+ActiveRecord::Schema.define(version: 20170703193310) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
@@ -35,9 +34,6 @@ ActiveRecord::Schema.define(version: 20170703173741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-=======
-ActiveRecord::Schema.define(version: 20170615135523) do
->>>>>>> 90c59c761251a545a4949a742732909ae4442917
 
   create_table "fornecedors", force: :cascade do |t|
     t.string "nome_fornecedor"
@@ -48,6 +44,19 @@ ActiveRecord::Schema.define(version: 20170615135523) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orcamentos", force: :cascade do |t|
+    t.string "status"
+    t.integer "quilometragem"
+    t.integer "valor_total"
+    t.text "descricao"
+    t.integer "cliente_id"
+    t.integer "veiculo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_orcamentos_on_cliente_id"
+    t.index ["veiculo_id"], name: "index_orcamentos_on_veiculo_id"
+  end
+
   create_table "pecas", force: :cascade do |t|
     t.string "nome"
     t.string "tipo"
@@ -56,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170615135523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "fornecedor_id"
-<<<<<<< HEAD
   end
 
   create_table "veiculos", force: :cascade do |t|
@@ -69,8 +77,6 @@ ActiveRecord::Schema.define(version: 20170615135523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
-=======
->>>>>>> 90c59c761251a545a4949a742732909ae4442917
   end
 
 end

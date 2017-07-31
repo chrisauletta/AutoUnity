@@ -1,0 +1,2 @@
+class PecaOrcController < ApplicationController
+end

@@ -1,6 +1,5 @@
 <%= form_with(model: veiculo, local: true) do |form| %>
 
-  <div class="leftcontact">
   <div class="field">
     <%= form.label :placa %>
     <%= form.text_field :placa, id: :veiculo_placa %>
@@ -15,8 +14,7 @@
     <%= form.label :modelo %>
     <%= form.text_field :modelo, id: :veiculo_modelo %>
   </div>
-</div>
-<div class="rightcontact">
+
   <div class="field">
     <%= form.label :ano %>
     <%= form.text_field :ano, id: :veiculo_ano %>
@@ -31,7 +29,7 @@
     <%= form.label :id_cliente_id %>
     <%= form.text_field :id_cliente_id, id: :veiculo_id_cliente_id %>
   </div>
-</div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

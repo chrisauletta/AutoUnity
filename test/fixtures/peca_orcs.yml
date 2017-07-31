@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orcamento_id: one
+  peca_id: one
+
+two:
+  orcamento_id: two
+  peca_id: two

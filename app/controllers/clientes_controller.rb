@@ -13,6 +13,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @cliente.build_veiculo
   end
 
   # GET /clientes/1/edit
@@ -22,9 +23,16 @@ class ClientesController < ApplicationController
   # POST /clientes
   def create
     @cliente = Cliente.new(cliente_params)
-
+    orc_check = params[:orc_check]
     if @cliente.save
-      redirect_to @cliente, notice: 'Cliente was successfully created.'
+      if orc_check == 'yes'
+      orc = Orcamento.new
+      orc.cliente_id = Cliente.last.id
+      orc.veiculo_id =  Veiculo.last.id 
+      orc.status =  'Ativo'
+      orc.save
+    end
+      redirect_to orcamento_path, notice: 'Cliente e veiculo criado com sucessso'
     else
       render :new
     end
@@ -41,6 +49,7 @@ class ClientesController < ApplicationController
 
   # DELETE /clientes/1
   def destroy
+    Veiculo.destroy params["id"]
     @cliente.destroy
     redirect_to clientes_url, notice: 'Cliente was successfully destroyed.'
   end
@@ -53,6 +62,6 @@ class ClientesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes)
+      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor])
     end
 end
