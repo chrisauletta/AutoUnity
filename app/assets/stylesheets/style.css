@@ -16,25 +16,25 @@
 
 table
 {
-	width: 500px;
+	width: auto;
 	border-collapse: collapse;
 }
 
 thead
 {
 	display: block;
-	width: 500px;
+	width: auto;
 	overflow: auto;
 	color: #fff;
-	background: #000;
+	background: #048AE4;
 }
 
 tbody
 {
 	display: block;
-	width: 500px;
+	width: auto;
 	height: 200px;
-	background: pink;
+	background: #BBBBBB;
 	overflow: auto;
 }
 
@@ -43,5 +43,5 @@ th,td
 	padding: .5em 1em;
 	text-align: left;
 	vertical-align: top;
-	border-left: 1px solid #fff;
+	border-left: 0px solid #fff;
 }

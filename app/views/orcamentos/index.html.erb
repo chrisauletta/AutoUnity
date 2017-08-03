@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Orcamentos</h1>
-
+<div class="span16">
 <table>
   <thead>
     <tr>
@@ -22,16 +22,17 @@
         <td><%= orcamento.quilometragem %></td>
         <td><%= orcamento.valor_total %></td>
         <td><%= orcamento.descricao %></td>
-        <td><%= orcamento.cliente %></td>
-        <td><%= orcamento.veiculo %></td>
-        <td><%= link_to 'Show', orcamento %></td>
-        <td><%= link_to 'Edit', edit_orcamento_path(orcamento) %></td>
-        <td><%= link_to 'Destroy', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= orcamento.cliente.nome %></td>
+        <td><%= orcamento.veiculo.marca %></td>
+        <td><%= link_to 'Relacionar Peças', peca_orc_path(orcamento) %></td>
+        <td><%= link_to 'Exibir', orcamento %></td>
+        <td><%= link_to 'Editar', edit_orcamento_path(orcamento) %></td>
+        <td><%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Orcamento', new_orcamento_path %>
