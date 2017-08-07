@@ -1,0 +1,12 @@
+ <ul class="nav nav-tabs">
+			                            <li class="active">
+			                                <a href="#"><i class="icon-home"></i>Home</a>
+			                            </li>
+			                            <li><a href="#">Maps</a></li>
+			                            <li><a href="#">Admin</a></li>
+			                            <li><a href="#">Maps</a></li>
+			                            <li><a href="#">Admin</a></li>
+			                            <li><a href="#">Maps</a></li>
+			                          
+
+			                        </ul

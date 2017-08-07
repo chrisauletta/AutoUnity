@@ -87,7 +87,7 @@
 
   <div class="field">
     <%= ff.label :marca %>
-    <%= form.text_field :marca, id: :veiculo_marca %>
+    <%= ff.text_field :marca, id: :veiculo_marca %>
   </div>
 
   <div class="field">
@@ -106,12 +106,16 @@
   </div>
 
     <%end%>
-  </div>
-
+  <div class="form-inline">
   <%= check_box_tag :orc_check, 'yes'%>
+  Selecione para criar orçamento
+  </div>
+  </br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cadastrar" %>
   </div>
+</div>
+
 
 <% end %>

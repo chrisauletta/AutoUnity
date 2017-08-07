@@ -2,12 +2,15 @@
 <html>
   <head>
     <title>Unity System</title>
+        <meta charset="UTF-8"/>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
      <style>
         #body-content { padding-top: 0px;}
@@ -23,43 +26,43 @@
 		                                <li>
 		          					<%=link_to pecas_path do %>
 		          					<i class="icon-dashboard icon-large"></i>
-		          					Peças
+		          					Dashboard
 		          					<%end%>
 		                                </li>
 		                                <li>     
-		                            <%=link_to fornecedors_path do %>
+		                            <%=link_to clientes_path do %>
 		          					<i class="icon-user icon-large""></i>
-		          					Forncedor
+		          					Cliente
 		          					<%end%>
 		                                </li>
 		                                    <li>     
-		                            <%=link_to fornecedors_path do %>
+		                            <%=link_to veiculos_path do %>
 		          					<i class="fa fa-car icon-large"></i>
-		          					Forncedor
+		          					Veiculo
 		          					<%end%>
 		                                </li>
 		                                    <li>     
-		                            <%=link_to fornecedors_path do %>
+		                            <%=link_to orcamentos_path do %>
 		          					<i class="icon-list-alt icon-large"></i>
 		          					Forncedor
 		          					<%end%>
 		                                </li>
 		                                    <li>     
-		                            <%=link_to fornecedors_path do %>
+		                            <%=link_to pecas_path do %>
 		          					<i class="fa fa-cubes icon-large"></i>
-		          					Forncedor
+		          					Peças
 		          					<%end%>
 		                                </li>
 		                                    <li>     
-		                            <%=link_to fornecedors_path do %>
+		                            <%=link_to pecas_path do %>
 		          					<i class="fa fa-wrench icon-large"></i>
-		          					Forncedor
+		          					Serviços
 		          					<%end%>
 		                                </li>
 		                                      <li>     
 		                            <%=link_to fornecedors_path do %>
 		          					<i class="fa fa-book icon-large"></i>
-		          					Forncedor
+		          					Financeiro
 		          					<%end%>
 		                                </li>
 		                        </ul>
@@ -77,7 +80,7 @@
 			                </div>
 			                <div class="page-nav-options">
 			                    <div class="span9">
-			            
+			            	 	
 			                 
 			                    </div>
 			                </div>

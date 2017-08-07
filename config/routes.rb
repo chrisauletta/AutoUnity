@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/peca_orc/:id" => "peca_orc#inclui_peca", as: :inclui_peca
   delete "/peca_orc/:id" => "peca_orc#destroy"
 
+  get "/report/:id" => "report#orcamento", as: :report_orc
 
   root "pecas#index"
 end

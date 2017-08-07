@@ -22,3 +22,7 @@ gem 'twitter-bootstrap-rails'
 gem "bootstrap-table-rails"
 
 gem 'ransack'
+
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'

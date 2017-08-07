@@ -55,6 +55,6 @@ class PecasController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def peca_params
-      params.require(:peca).permit(:nome, :tipo, :fabricante, :preco)
+      params.require(:peca).permit(:nome, :tipo, :fabricante, :preco, :fornecedor_id)
     end
 end

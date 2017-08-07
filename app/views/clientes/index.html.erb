@@ -5,40 +5,39 @@
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Oficio</th>
-      <th>Rua</th>
-      <th>Bairro</th>
-      <th>Cidade</th>
-      <th>Uf</th>
-      <th>Cep</th>
-      <th>Telefone</th>
-      <th>Celular</th>
-      <th>Comercial</th>
-      <th>Email</th>
-      <th>Observacoes</th>
-      <th colspan="3"></th>
+      <th class="span3">Nome</th>
+      <th class="span3">Telefone</th>
+      <th class="span3">Celular</th>
+      <th class="span3">Email</th>
+      <th class="span3">Observacoes</th>
+      <th class="span3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @clientes.each do |cliente| %>
       <tr>
-        <td><%= cliente.nome %></td>
-        <td><%= cliente.oficio %></td>
-        <td><%= cliente.rua %></td>
-        <td><%= cliente.bairro %></td>
-        <td><%= cliente.cidade %></td>
-        <td><%= cliente.uf %></td>
-        <td><%= cliente.cep %></td>
-        <td><%= cliente.telefone %></td>
-        <td><%= cliente.celular %></td>
-        <td><%= cliente.comercial %></td>
-        <td><%= cliente.email %></td>
-        <td><%= cliente.observacoes %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="span3"><%= cliente.nome %></td>
+        <td class="span3"><%= cliente.telefone %></td>
+        <td class="span3"><%= cliente.celular %></td>
+        <td class="span3"><%= cliente.email %></td>
+        <td class="span3"><%= cliente.observacoes %>
+        <td class="span3">
+        <div class="btn-group">
+        <button class="btn ">Funçoes</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+        <%= link_to 'Exibir', cliente %>
+        <%= link_to 'Editar', edit_cliente_path(cliente) %>
+        <%= link_to 'Deletar', cliente, method: :delete, data: { confirm: 'Tem certeza' } %>
+          
+      </ul>
+      </div>
+
+        </td>
       </tr>
     <% end %>
   </tbody>
