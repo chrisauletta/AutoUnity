@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   get "/report/:id" => "report#orcamento", as: :report_orc
 
+  get "/oficina" => "oficina#index"
+
+  get "/orcamento/cliente/:id" => "orcamentos#cliente", as: :pega_cliente
+
   root "pecas#index"
 end

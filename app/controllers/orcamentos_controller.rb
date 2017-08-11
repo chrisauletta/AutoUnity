@@ -13,16 +13,29 @@ class OrcamentosController < ApplicationController
   # GET /orcamentos/new
   def new
     @orcamento = Orcamento.new
+    @nome = params[:nome_p]
+    @cliente_orc = Cliente.where "nome like ?", "%#{@nome}%"
+    @cliente_search = Cliente.new
   end
 
   # GET /orcamentos/1/edit
   def edit
   end
 
+  def cliente 
+  @cliente_search = Cliente.find(params[:id])
+  respond_to do |format|
+    format.html { render :edit }
+    format.js 
+  end
+  end
+
   # POST /orcamentos
   def create
     @orcamento = Orcamento.new(orcamento_params)
-
+    @orcamento.valor_total = 0
+    @orcamento.cliente_id = Veiculo.find(params[:veiculo_id]).cliente_id
+    @orcamento.veiculo_id = params[:veiculo_id]
     if @orcamento.save
       redirect_to @orcamento, notice: 'Orcamento was successfully created.'
     else
@@ -53,6 +66,6 @@ class OrcamentosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def orcamento_params
-      params.require(:orcamento).permit(:status, :quilometragem, :valor_total, :descricao, :cliente_id, :veiculo_id)
+      params.require(:orcamento).permit(:quilometragem, :descricao, :status)
     end
 end

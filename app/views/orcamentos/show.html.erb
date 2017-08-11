@@ -1,5 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+<div class="span14">
+<div class="form-inline">
+Nome:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.nome%></span>
+Telefone:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.telefone%></span>
+Celular:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.celular%></span>
+</div>
+<div class="form-inline">
+Placa:
+<span class="input-large uneditable-input"> <%=@orcamento.veiculo.placa%> </span>
+Marca:
+<span class="input-large uneditable-input"><%=@orcamento.veiculo.marca%></span>
+Modelo:
+<span class="input-large uneditable-input"><%=@orcamento.veiculo.modelo%></span>
+</div>
+</div>
+</div>
+
+
 <p>
   <strong>Status:</strong>
   <%= @orcamento.status %>

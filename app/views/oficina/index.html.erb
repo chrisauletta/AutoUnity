@@ -1,0 +1,33 @@
+div class="span16">
+<table>
+  <thead>
+    <tr>
+      <th class="span2"></th>
+      <th class="span2">Status</th>
+      <th class="span3">Cliente</th>
+      <th class="span2">Veiculo</th>
+      <th class="span2">Placa</th>
+      <th class="span2">Quilometragem</th>
+      <th class="span4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%i = 0%>
+    <% @orcamento_ofici.each do |orcamento| %>
+      <tr>
+        <td class="span2"><%= i %></td>
+        <td class="span2"><%= orcamento.status %></td>
+        <td class="span3"><%= orcamento.cliente.nome %></td>
+        <td class="span2"><%= orcamento.veiculo.marca %></td>
+        <td class="span2"><%= orcamento.veiculo.placa %></td>
+        <td class="span2"><%= orcamento.quilometragem %></td>
+        <td class="span4">
+        <%= link_to 'Exibir', orcamento, data: { keybinding: "#{i+=1}" }  %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

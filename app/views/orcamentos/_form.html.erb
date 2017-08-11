@@ -1,30 +1,53 @@
 <%= form_with(model: orcamento, local: true) do |form| %>
-  <% if orcamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
 
-      <ul>
-      <% orcamento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
+<table>
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Telefone</th>
+      <th class="span3">Celular</th>
+      <th class="span3">Email</th>
+      <th class="span3">Observacoes</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :orcamento_status %>
-  </div>
+  <tbody>
+    <% @cliente_orc.each do |cliente| %>
+      <tr>
+        <td class="span3"><%= cliente.nome %></td>
+        <td class="span3"><%= cliente.telefone %></td>
+        <td class="span3"><%= cliente.celular %></td>
+        <td class="span3"><%= cliente.email %></td>
+        <td class="span3"><%= cliente.observacoes %>
+       <td class="span3"><%= link_to "selecione", pega_cliente_path(cliente),:remote => true%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</br>
+<table id="search">
+  <thead>
+    <tr>
+      <th class="span3">Placa</th>
+      <th class="span3">Marca</th>
+      <th class="span3">Modelo</th>
+      <th class="span3">Ano</th>
+      <th class="span3">Cor</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+  </table>
 
   <div class="field">
     <%= form.label :quilometragem %>
     <%= form.number_field :quilometragem, id: :orcamento_quilometragem %>
   </div>
 
-  <div class="field">
-    <%= form.label :valor_total %>
-    <%= form.number_field :valor_total, id: :orcamento_valor_total %>
-  </div>
 
   <div class="field">
     <%= form.label :descricao %>
@@ -32,14 +55,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id, id: :orcamento_cliente_id %>
+    <%= form.label :quilometragem %>
+    <%= select(:orcamento, :status, [ 'Cotaçao','Pendende de aprovaçao','Aprovado', 'Encerrado'], {include_blank: true}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :veiculo_id %>
-    <%= form.text_field :veiculo_id, id: :orcamento_veiculo_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

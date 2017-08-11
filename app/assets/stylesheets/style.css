@@ -38,10 +38,11 @@ tbody
 	overflow: auto;
 }
 
+
 th,td
 {
 	padding: .5em 1em;
 	text-align: left;
 	vertical-align: top;
-	border-left: 0px solid #fff;
+	border-bottom: 1px solid #fff;
 }

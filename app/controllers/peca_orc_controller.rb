@@ -11,7 +11,11 @@ class PecaOrcController < ApplicationController
 		peca.orcamento_id = params[:id]
 		peca.peca_id =  params[:peca_id]
 		peca.quantidade = params[:quantidade]
-		peca.preco_o = params[:preco_o] * peca.quantidade
+		peca.preco_o = params[:preco_o] 
+		peca.preco_o *= peca.quantidade
+		o  = Orcamento.find(params[:id])
+		o.valor_total += peca.preco_o
+		o.save
 		peca.save
 		redirect_back fallback_location: @orcamento
 	end

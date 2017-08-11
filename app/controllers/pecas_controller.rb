@@ -19,6 +19,7 @@ class PecasController < ApplicationController
 
   # GET /pecas/1/edit
   def edit
+        @fornecedors = Fornecedor.all
   end
 
   # POST /pecas

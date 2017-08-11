@@ -5,6 +5,7 @@
   <table class="table">
   <thead>
     <tr>
+      <th class="span3"></th>
       <th class="span3">Nome</th>
       <th class="span3">Tipo</th>
       <th class="span3">Fabricante</th>
@@ -17,13 +18,14 @@
   <%i = 0%>
     <% @pecas.each do |peca| %>
         <tr>
+        <td class="span3"><%=i%></td>
         <td class="span3"><%= peca.nome %></td>
         <td class="span3"><%= peca.tipo %></td>
         <td class="span3"><%= peca.fabricante %></td>
         <td class="span3"><%= peca.preco %></td>
         <td class="span3">
         <%= link_to 'Editar', edit_peca_path(peca), class:"btn btn-default" %>
-        <%= link_to 'Deletar', peca, method: :delete, data: { keybinding: "#{i+=1}" }, class:"btn btn-danger" %></td>
+        <%= link_to 'Deletar', peca, method: :delete, data: { keybinding: "#{i+=1}"},class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

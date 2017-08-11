@@ -1,0 +1,10 @@
+  <% @cliente_search.veiculo.each do |veiculo| %>
+      <tr>
+        <td class="span3"><%= veiculo.placa %></td>
+        <td class="span3"><%= veiculo.marca %></td>
+        <td class="span3"><%= veiculo.modelo %></td>
+        <td class="span3"><%= veiculo.ano %></td>
+        <td class="span3"><%= veiculo.cor %></td>
+        <td class="span3"><%= radio_button_tag :veiculo_id, veiculo.id %></td>
+      </tr>
+    <% end %>
