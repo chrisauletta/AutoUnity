@@ -1,8 +1,25 @@
+<h1>Pecas</h1>
+
+<div class="row">
+  <div class="span8 offset4 teste">
+    <button class="btn">
+      <i class="fa fa-bath fa-5x"></i></br>
+      Estoque
+    </button>
+  </div>
+
+</div>
+<hr>
 <p id="notice"><%= notice %></p>
 
-  <h1>Pecas</h1>
-
-  <table class="table">
+      <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_p %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+  <table id="pecas" class="table">
   <thead>
     <tr>
       <th class="span3"></th>

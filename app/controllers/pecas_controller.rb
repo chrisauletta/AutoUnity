@@ -7,6 +7,16 @@ class PecasController < ApplicationController
     @pecas = Peca.all
   end
 
+  def busca_pecas
+   @nome = params[:nome_p]
+   @peca_search = Peca.where "nome like ?", "%#{@nome}%"
+   puts @peca_search
+    respond_to do |format|
+      format.html 
+      format.js
+    end 
+  end
+
   # GET /pecas/1
   def show
   end

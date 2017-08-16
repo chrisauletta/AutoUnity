@@ -1,0 +1,9 @@
+    <% pecas_orc.each do |peca| %>
+                <tr>
+                <td class="span3"><%= peca.nome %></td>
+                <td class="span3"><%= peca.tipo %></td>
+                <td class="span3"><%= peca.fabricante %></td>
+                <td class="span2"><%= peca.preco %></td>
+                <td class="span2"><%= radio_button_tag :peca_id, peca.id %></td>
+              </tr>
+   <% end %>

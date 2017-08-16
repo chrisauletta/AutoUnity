@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :servicos
   resources :orcamentos
   resources :clientes
   resources :fornecedors
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
 
   get "/oficina" => "oficina#index"
 
-  get "/orcamento/cliente/:id" => "orcamentos#cliente", as: :pega_cliente
+  get "/busca_cliente/:id" => "clientes#busca_cliente_id", as: :pega_cliente_id
+  get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
+  get "busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
 
   root "pecas#index"
 end

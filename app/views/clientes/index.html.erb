@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Clientes</h1>
-
-<table>
+<%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_c %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+<table id="cliente">
   <thead>
     <tr>
       <th class="span3">Nome</th>
@@ -15,31 +21,7 @@
   </thead>
 
   <tbody>
-    <% @clientes.each do |cliente| %>
-      <tr>
-        <td class="span3"><%= cliente.nome %></td>
-        <td class="span3"><%= cliente.telefone %></td>
-        <td class="span3"><%= cliente.celular %></td>
-        <td class="span3"><%= cliente.email %></td>
-        <td class="span3"><%= cliente.observacoes %>
-        <td class="span3">
-        <div class="btn-group">
-        <button class="btn ">Funçoes</button>
-        <button class="btn dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-
-        <%= link_to 'Exibir', cliente %>
-        <%= link_to 'Editar', edit_cliente_path(cliente) %>
-        <%= link_to 'Deletar', cliente, method: :delete, data: { confirm: 'Tem certeza' } %>
-          
-      </ul>
-      </div>
-
-        </td>
-      </tr>
-    <% end %>
+  <%= render 'tabela_cliente', clientes: @clientes%>
   </tbody>
 </table>
 

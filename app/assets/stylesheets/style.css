@@ -57,3 +57,11 @@ th,td
 .height-label{
 	height: 60px;
 }
+
+.teste{
+	background: black;
+}
+
+hr{
+	border: 1px solid grey;
+}

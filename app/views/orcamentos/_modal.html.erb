@@ -7,7 +7,7 @@
   <div class="modal-body">
 
   
-      <%= form_tag(peca_orc_path, method: :get) do %>
+      <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_p %>
@@ -20,7 +20,7 @@
       <div class="span11"> 
 
 
-        <table class="table table-hover">
+        <table id="pecas" class="table table-hover">
           <thead>
             <tr>
               <th class="span3">Nome</th>
@@ -32,16 +32,11 @@
           </thead>
 
           <tbody>
-            <% @pecas_orc.each do |peca| %>
-                <tr>
-                <td class="span3"><%= peca.nome %></td>
-                <td class="span3"><%= peca.tipo %></td>
-                <td class="span3"><%= peca.fabricante %></td>
-                <td class="span2"><%= peca.preco %></td>
-                <td class="span2"><%= radio_button_tag :peca_id, peca.id %></td>
-              </tr>
-            <% end %>
-          </tbody>
+        
+      <%= render 'pecas/tabela_peca', pecas_orc: @pecas_orc %>         
+
+       </tbody>
+      
         </table>
       </div>      
   </div>

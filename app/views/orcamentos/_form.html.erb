@@ -21,13 +21,14 @@
         <td class="span3"><%= cliente.celular %></td>
         <td class="span3"><%= cliente.email %></td>
         <td class="span3"><%= cliente.observacoes %>
-       <td class="span3"><%= link_to "selecione", pega_cliente_path(cliente),:remote => true%></td>
+       <td class="span3"><%= link_to "selecione", pega_cliente_id_path(cliente),:remote => true%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </br>
-<table id="search">
+
+<table id="veiculo">
   <thead>
     <tr>
       <th class="span3">Placa</th>
