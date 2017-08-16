@@ -33,7 +33,7 @@ tbody
 {
 	display: block;
 	width: auto;
-	height: 200px;
+	height: 300px;
 	background: #BBBBBB;
 	overflow: auto;
 }
@@ -45,4 +45,15 @@ th,td
 	text-align: left;
 	vertical-align: top;
 	border-bottom: 1px solid #fff;
+}
+
+.modal-lg{
+    /* new custom width */
+    width: 900px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -475px;
+}
+
+.height-label{
+	height: 60px;
 }

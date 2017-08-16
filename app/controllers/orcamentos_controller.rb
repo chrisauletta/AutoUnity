@@ -8,6 +8,8 @@ class OrcamentosController < ApplicationController
 
   # GET /orcamentos/1
   def show
+  @nome = params[:nome_p]
+  @pecas_orc = Peca.where "nome like ?", "%#{@nome}%"
   end
 
   # GET /orcamentos/new

@@ -10,6 +10,8 @@ Telefone:
 Celular:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.celular%></span>
 </div>
+
+</br>
 <div class="form-inline">
 Placa:
 <span class="input-large uneditable-input"> <%=@orcamento.veiculo.placa%> </span>
@@ -18,24 +20,75 @@ Marca:
 Modelo:
 <span class="input-large uneditable-input"><%=@orcamento.veiculo.modelo%></span>
 </div>
+
+</br>
+<div class="form-inline">
+Status
+<span class="input-large uneditable-input"><%= @orcamento.status %></span>
+Quilometragem:
+<span class="input-large uneditable-input"><%= @orcamento.quilometragem %></span>
+</p>
 </div>
 </div>
+</div>
 
 
-<p>
-  <strong>Status:</strong>
-  <%= @orcamento.status %>
-</p>
+<button type="button" id="bt" class="btn btn-info btn-lg" data-backdrop="static" data-toggle="modal" data-target="#myModal">Relacionar Peças</button>
 
-<p>
-  <strong>Quilometragem:</strong>
-  <%= @orcamento.quilometragem %>
-</p>
+<%= render 'modal', pecas_orc: @pecas_orc %>
 
-<p>
+<div class="row">
+  <div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Relaçao de Pecas
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+      <div class="span14">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="span3">Nome</th>
+              <th class="span3">quantidade</th>
+              <th class="span3">Fabricante</th>
+              <th class="span2">Preco</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              <% @orcamento.peca_orc.each do |peca_orc| %>
+
+                <tr>
+                <td class="span3"><%= peca_orc.peca.nome %></td>
+                <td class="span3"><%= peca_orc.peca.fabricante %></td>
+                <td class="span3"><%= peca_orc.quantidade %></td>
+                <td class="span2"><%= peca_orc.preco_o %></td>
+  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+              </tr>
+
+              <%end%>
+          </tbody>
+        </table>
+        </div>
+        </div>
+    </div>
+    <div class="box-footer">
+      <button type="button" id="bt" class="btn btn-info btn-lg" data-backdrop="static" data-toggle="modal" data-target="#myModal">Relacionar Peças</button>
+    </div>
+  </div>
+</div>
+
+
+
+
   <strong>Valor total:</strong>
-  <%= @orcamento.valor_total %>
-</p>
+ <span class="input-small uneditable-input height-label"><h1><%= @orcamento.valor_total %></h1></span>
 
 <p>
   <strong>Descricao:</strong>

@@ -1,0 +1,53 @@
+ <%= form_tag(peca_orc_path, method: :get) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_p %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+      <%= form_tag inclui_peca_path do%>
+
+      <div class="row">
+      <div class="span11"> 
+
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="span3">Nome</th>
+              <th class="span3">Tipo</th>
+              <th class="span3">Fabricante</th>
+              <th class="span2">Preco</th>
+              <th class="span2">Selecione</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @pecas_orc.each do |peca| %>
+                <tr>
+                <td class="span3"><%= peca.nome %></td>
+                <td class="span3"><%= peca.tipo %></td>
+                <td class="span3"><%= peca.fabricante %></td>
+                <td class="span2"><%= peca.preco %></td>
+                <td class="span2"><%= radio_button_tag :peca_id, peca.id %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>      
+    <div class="spanan5">
+    <div class="field">
+    <%= label_tag :Quantidade %>
+    <%= text_field_tag :quantidade%>
+  </div>
+  <div class="field">
+    <%= label_tag :Preco %>
+    <%= number_field_tag :preco_o %>
+  </div>
+      <%= submit_tag "VAI!"%>
+    </div>
+  </div>
+ </div> 
+ </div>
+ </div> 
+<%end%>

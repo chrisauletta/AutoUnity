@@ -22,6 +22,9 @@ class PecaOrcController < ApplicationController
 
 	def destroy
 		@PecaOrc = PecaOrc.find(params[:id])
+		o = Orcamento.find(@PecaOrc.orcamento_id)
+		o.valor_total -= @PecaOrc.preco_o
+		o.save
 	    @PecaOrc.destroy
 	    redirect_back fallback_location: @orcamento
 	end
