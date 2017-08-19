@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816011800) do
+ActiveRecord::Schema.define(version: 20170816160402) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170816011800) do
   create_table "orcamentos", force: :cascade do |t|
     t.string "status"
     t.integer "quilometragem"
-    t.integer "valor_total"
+    t.decimal "valor_total"
     t.text "descricao"
     t.integer "cliente_id"
     t.integer "veiculo_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170816011800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantidade"
-    t.integer "preco_o"
+    t.decimal "preco_o"
     t.index ["orcamento_id"], name: "index_peca_orcs_on_orcamento_id"
     t.index ["peca_id"], name: "index_peca_orcs_on_peca_id"
   end
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170816011800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "fornecedor_id"
+    t.string "marca_carro"
+    t.string "modelo_carro"
   end
 
   create_table "servicos", force: :cascade do |t|

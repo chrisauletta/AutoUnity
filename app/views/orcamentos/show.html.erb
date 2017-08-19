@@ -34,9 +34,11 @@ Quilometragem:
 
 
 <button type="button" id="bt" class="btn btn-info btn-lg" data-backdrop="static" data-toggle="modal" data-target="#myModal">Relacionar Peças</button>
-
+  
 <%= render 'modal', pecas_orc: @pecas_orc %>
-
+<div class="edit">
+<%= render 'modal_edit_pecaorc', pecas: @peca %>
+</div>
 <div class="row">
   <div class="box pattern pattern-sandstone">
 
@@ -68,7 +70,10 @@ Quilometragem:
                 <td class="span3"><%= peca_orc.peca.fabricante %></td>
                 <td class="span3"><%= peca_orc.quantidade %></td>
                 <td class="span2"><%= peca_orc.preco_o %></td>
-  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                <%= link_to 'Click Here', edit_peca_orc_path(peca_orc), :remote => true %>
+                </td>
+  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
 
               </tr>
 
@@ -85,24 +90,16 @@ Quilometragem:
 </div>
 
 
-
-
+<div class="row valor_total">
+<div class="form-inline">
   <strong>Valor total:</strong>
- <span class="input-small uneditable-input height-label"><h1><%= @orcamento.valor_total %></h1></span>
-
+ <span class="input-medium uneditable-input height-label"><h1><%= @orcamento.valor_total %></h1></span>
+</div>
+</div>
+</br>
 <p>
   <strong>Descricao:</strong>
   <%= @orcamento.descricao %>
-</p>
-
-<p>
-  <strong>Cliente:</strong>
-  <%= @orcamento.cliente %>
-</p>
-
-<p>
-  <strong>Veiculo:</strong>
-  <%= @orcamento.veiculo %>
 </p>
 
 <%= link_to 'Edit', edit_orcamento_path(@orcamento) %> |

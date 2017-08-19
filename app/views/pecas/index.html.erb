@@ -27,6 +27,7 @@
       <th class="span3">Tipo</th>
       <th class="span3">Fabricante</th>
       <th class="span3">Preco</th>
+      <th class="span3">Marca</th>
       <th class="span3" colspan="3"></th>
     </tr>
   </thead>
@@ -40,6 +41,7 @@
         <td class="span3"><%= peca.tipo %></td>
         <td class="span3"><%= peca.fabricante %></td>
         <td class="span3"><%= peca.preco %></td>
+        <td class="span3"><%= peca.marca_carro %></td>
         <td class="span3">
         <%= link_to 'Editar', edit_peca_path(peca), class:"btn btn-default" %>
         <%= link_to 'Deletar', peca, method: :delete, data: { keybinding: "#{i+=1}"},class:"btn btn-danger" %></td>

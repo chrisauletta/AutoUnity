@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   get "/busca_cliente/:id" => "clientes#busca_cliente_id", as: :pega_cliente_id
   get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
-  get "busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
+  get "/busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
+  get "/edit_peca_orc/:id" => "orcamentos#edit_peca_orc", as: :edit_peca_orc
 
   root "pecas#index"
 end

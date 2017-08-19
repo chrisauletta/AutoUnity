@@ -26,6 +26,14 @@
     <%= form.text_field :fabricante, id: :peca_fabricante %>
   </div>
 
+  <div class="form-inline">
+     <%= form.label :marca %>
+    <%= form.text_field :marca_carro, id: :peca_marca%>
+
+     <%= form.label :modelo%>
+    <%= form.text_field :modelo_carro, id: :peca_modelo %>
+  </div>
+
   <div class="field">
     <%= form.label :preco %>
     <%= form.text_field :preco, id: :peca_preco %>
