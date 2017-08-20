@@ -12,11 +12,19 @@ Rails.application.routes.draw do
   get "/peca_orc/:id" => "peca_orc#index", as: :peca_orc
   post "/peca_orc/:id" => "peca_orc#inclui_peca", as: :inclui_peca
   delete "/peca_orc/:id" => "peca_orc#destroy"
+  post "/peca_orc/edit/:id" => "peca_orc#edit", as: :peca_edit_orc 
 
+#Servivo Orcamento
+  post "/servico_orc/:id" => "servico_orc#inclui_servico", as: :inclui_servico
+  delete "/servico_orc/:id" => "servico_orc#destroy", as: :delete_serv
+
+#Relatorio
   get "/report/:id" => "report#orcamento", as: :report_orc
 
+#Area do mecanico
   get "/oficina" => "oficina#index"
 
+#chamadas JS
   get "/busca_cliente/:id" => "clientes#busca_cliente_id", as: :pega_cliente_id
   get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
   get "/busca_cliente" => "clientes#busca_cliente", as: :pega_cliente

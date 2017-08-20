@@ -28,4 +28,8 @@ class PecaOrcController < ApplicationController
 	    @PecaOrc.destroy
 	    redirect_back fallback_location: @orcamento
 	end
+
+	def edit
+		puts params[:id]
+	end
 end

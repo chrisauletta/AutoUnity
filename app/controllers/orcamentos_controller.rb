@@ -9,6 +9,7 @@ class OrcamentosController < ApplicationController
   # GET /orcamentos/1
   def show
   @pecaa = PecaOrc.new
+  @servico_orc = Servico.all
   @pecas_orc = Peca.all
   end
 
@@ -25,8 +26,8 @@ class OrcamentosController < ApplicationController
   end
 
   def edit_peca_orc
-  @pecaa = PecaOrc.find(params[:id])
-puts @peca.quantidade
+  @peca_edit = PecaOrc.find(params[:id])
+puts @peca_edit.quantidade
   respond_to do |format|
     format.html 
     format.js 

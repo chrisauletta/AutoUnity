@@ -1,0 +1,54 @@
+<div id="modalServico" class="modal hide fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+
+  
+
+
+      <%= form_tag inclui_servico_path do%>
+
+      <div class="row">
+      <div class="span12"> 
+
+
+        <table id="servicos" class="table table-hover">
+          <thead>
+            <tr>
+              <th class="span4">Nome</th>
+              <th class="span4">Preco</th>
+              <th class="span4">Selecione</th>
+            </tr>
+          </thead>
+
+          <tbody>
+        
+       <% @servico_orc.each do |servico| %>
+                    <tr>
+                    <td class="span4"><%= servico.nome %></td>
+                    <td class="span4"><%= servico.preco %></td>
+                    <td class="span4"><%= radio_button_tag :servico_id, servico.id %></td>
+                  </tr>
+       <% end %>
+       </tbody>
+      
+        </table>
+      </div>      
+  </div>
+
+
+ </div>
+  <div class="modal-footer">
+  <div class="form-inline">
+
+    <%= label_tag :Preco %>
+    <%= text_field_tag :preco_s%>
+
+      <%= submit_tag "Vai!", class:"btn btn-primary"%>
+    </div>
+  </div>
+  <%end%>
+</div>

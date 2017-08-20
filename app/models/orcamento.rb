@@ -5,4 +5,6 @@ class Orcamento < ApplicationRecord
   has_many :peca_orc
   has_many :peca, through: :peca_orc
 
+  has_many :servico_orc
+  has_many :servico, through: :servico_orc
 end

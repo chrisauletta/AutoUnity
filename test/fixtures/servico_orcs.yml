@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  servico_id: one
+  orcamento_id: 
+  preco_o: 9.99
+
+two:
+  servico_id: two
+  orcamento_id: 
+  preco_o: 9.99
