@@ -19,7 +19,7 @@
           <%= select(:orcamento, :selec, [ 'nome','placa'], {include_blank: true}) %>
           <%= text_field_tag :nome %>
           <%= label_tag :status %>
-          <%= select(:orcamento, :status, [ 'Pendente','Cotaçao','placa'], {include_blank: true}) %>
+          <%= select(:orcamento, :status, [ 'Cotaçao','Pendende de aprovaçao','Aprovado', 'Encerrado'], {include_blank: true}) %>
 
           <%= submit_tag "Encontrar"%>
           </div>

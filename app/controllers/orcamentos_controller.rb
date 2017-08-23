@@ -62,9 +62,10 @@ class OrcamentosController < ApplicationController
     if status != ""
     @orc = Orcamento.where str
     puts str
+    elsif selec == ""
+    @orc = Orcamento.where "status = " "'#{status}'"
     else
-    @orc = Orcamento.where "%#{@selec}% like ?" "%#{nome}%"
-    puts "dois"
+    @orc = Orcamento.where "cliente_id in (select id from clientes where " "nome like " "'%#{nome}%')"
   end
   respond_to do |format|
     format.html 
