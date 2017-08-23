@@ -45,18 +45,18 @@
   </table>
 
   <div class="field">
-    <%= form.label :quilometragem %>
+    <%= form.label :Quilometragem %>
     <%= form.number_field :quilometragem, id: :orcamento_quilometragem %>
   </div>
 
 
   <div class="field">
-    <%= form.label :descricao %>
+    <%= form.label :Descricao %>
     <%= form.text_field :descricao, id: :orcamento_descricao %>
   </div>
 
   <div class="field">
-    <%= form.label :quilometragem %>
+    <%= form.label :Status %>
     <%= select(:orcamento, :status, [ 'Cotaçao','Pendende de aprovaçao','Aprovado', 'Encerrado'], {include_blank: true}) %>
   </div>
 

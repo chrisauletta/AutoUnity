@@ -1,12 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Orcamentos</h1>
-<div class="span16">
+<div class="box pattern pattern-sandstone">
 
-<table>
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Relaçao de Peças
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+ 
+      <div class="span14">
+         <%= form_tag(pega_orc_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= select(:orcamento, :selec, [ 'nome','placa'], {include_blank: true}) %>
+          <%= text_field_tag :nome %>
+          <%= label_tag :status %>
+          <%= select(:orcamento, :status, [ 'Pendente','Cotaçao','placa'], {include_blank: true}) %>
+
+          <%= submit_tag "Encontrar"%>
+          </div>
+    <% end %>
+<table id="table_index">
   <thead>
     <tr>
-      <th class="span2">Status</th>
+      <th class="span2", onclick="sortTable(0)">Status</th>
       <th class="span3">Cliente</th>
       <th class="span2">Veiculo</th>
       <th class="span2">Placa</th>
@@ -17,37 +38,14 @@
   </thead>
 
   <tbody>
-    <% @orcamentos.each do |orcamento| %>
-      <tr>
-        <td class="span2"><%= orcamento.status %></td>
-        <td class="span3"><%= orcamento.cliente.nome %></td>
-        <td class="span2"><%= orcamento.veiculo.marca %></td>
-        <td class="span2"><%= orcamento.veiculo.placa %></td>
-        <td class="span2"><%= orcamento.quilometragem %></td>
-        <td class="span2"><%= orcamento.valor_total %></td>
-        <td class="span4">
-        <div class="btn-group">
-        <button class="btn ">Funçoes</button>
-        <button class="btn dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
 
-        <%= link_to 'Relacionar Peças', peca_orc_path(orcamento) %>
-        <%= link_to 'Exibir', orcamento %>
-        <%= link_to 'Editar', edit_orcamento_path(orcamento) %>
-        <%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Editar', report_orc_path(orcamento, :format => 'pdf') %>
-          
-        </ul>
-      </div>
-        </td>
-
-      </tr>
-    <% end %>
   </tbody>
 </table>
-</div>
+</div><!-- Fecha span14-->
+</div><!-- Fecha row-->
+</div><!-- Fecha box content-->
+</div><!-- Fecha box-->
+
 <br>
 
 <%= link_to 'New Orcamento', new_orcamento_path %>

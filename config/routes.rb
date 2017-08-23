@@ -24,11 +24,15 @@ Rails.application.routes.draw do
 #Area do mecanico
   get "/oficina" => "oficina#index"
 
-#chamadas JS
+#buscas JS
   get "/busca_cliente/:id" => "clientes#busca_cliente_id", as: :pega_cliente_id
-  get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
   get "/busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
+
+  get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
+  
   get "/edit_peca_orc/:id" => "orcamentos#edit_peca_orc", as: :edit_peca_orc
+
+  get "/bucas_orcamento" => "orcamentos#busca_orcamento", as: :pega_orc
 
   root "pecas#index"
 end

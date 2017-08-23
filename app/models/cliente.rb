@@ -1,6 +1,5 @@
 class Cliente < ApplicationRecord
-	has_one :veiculo
-	has_many :veiculo
-	accepts_nested_attributes_for :veiculo
+	has_many :veiculo, :dependent => :destroy
+	accepts_nested_attributes_for :veiculo, :allow_destroy => true 
 
 end

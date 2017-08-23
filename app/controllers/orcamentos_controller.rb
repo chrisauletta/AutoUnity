@@ -25,14 +25,6 @@ class OrcamentosController < ApplicationController
   def edit
   end
 
-  def edit_peca_orc
-  @peca_edit = PecaOrc.find(params[:id])
-puts @peca_edit.quantidade
-  respond_to do |format|
-    format.html 
-    format.js 
-  end
-  end
 
   # POST /orcamentos
   def create
@@ -60,6 +52,34 @@ puts @peca_edit.quantidade
   def destroy
     @orcamento.destroy
     redirect_to orcamentos_url, notice: 'Orcamento was successfully destroyed.'
+  end
+
+  def busca_orcamento
+    selec =  params[:orcamento] [:selec]
+    nome =  params[:nome]
+    status = params[:orcamento] [:status]
+    str = "status = " "'#{status}'" " and cliente_id in (select id from clientes where " "nome like " "'%#{nome}%')"
+    if status != ""
+    @orc = Orcamento.where str
+    puts str
+    else
+    @orc = Orcamento.where "%#{@selec}% like ?" "%#{nome}%"
+    puts "dois"
+  end
+  respond_to do |format|
+    format.html 
+    format.js 
+  end
+    
+
+  def edit_peca_orc
+  @peca_edit = PecaOrc.find(params[:id])
+  respond_to do |format|
+    format.html 
+    format.js 
+  end
+  end
+
   end
 
   private

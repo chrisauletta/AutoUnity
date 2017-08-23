@@ -4,6 +4,7 @@ class ClientesController < ApplicationController
   # GET /clientes
   def index
     @clientes = Cliente.all
+
   end
 
   # GET /clientes/1
@@ -13,7 +14,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
-    @cliente.build_veiculo
+    @cliente.veiculo.build
   end
 
   # GET /clientes/1/edit
@@ -29,10 +30,11 @@ class ClientesController < ApplicationController
       orc = Orcamento.new
       orc.cliente_id = Cliente.last.id
       orc.veiculo_id =  Veiculo.last.id 
+      orc.valor_total = 0
       orc.status =  'Ativo'
       orc.save
     end
-      redirect_to orcamento_path, notice: 'Cliente e veiculo criado com sucessso'
+      redirect_to orcamentos_path, notice: 'Cliente e veiculo criado com sucessso'
     else
       render :new
     end
