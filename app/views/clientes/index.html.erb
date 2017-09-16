@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="box pattern pattern-sandstone">
 
-<h1>Clientes</h1>
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Clientes
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span16">
 <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
           <%= label_tag :nome %>
@@ -24,7 +34,10 @@
   <%= render 'tabela_cliente', clientes: @clientes%>
   </tbody>
 </table>
-
+</div>
+</div>
+</div>
+</div>
 <br>
 
-<%= link_to 'New Cliente', new_cliente_path %>
+<%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-primary" %>

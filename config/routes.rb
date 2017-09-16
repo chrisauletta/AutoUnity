@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "/oficina" => "oficina#index"
 
 #buscas JS
+
   get "/busca_cliente/:id" => "clientes#busca_cliente_id", as: :pega_cliente_id
   get "/busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
 

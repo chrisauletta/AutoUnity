@@ -1,1 +1,2 @@
-$('table#cliente tbody').html("<%= j render 'clientes/tabela_cliente', clientes: @cliente_search %>")
+$('table#cliente tbody').html("<%= j render 'clientes/tabela_cliente', clientes: @cliente_search %>");
+$('table#veiculo tbody').html("<%= j render 'clientes/table/table_cliente_newVeiculo', clientes: @cliente_search %>");

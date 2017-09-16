@@ -1,3 +1,4 @@
+<div class="span16">
 <p id="notice"><%= notice %></p>
 
 <h1>Orcamentos</h1>
@@ -6,14 +7,14 @@
     <div class="box-header">
        <i class="icon-table"></i>
         <h5>
-        Relaçao de Peças
+        Orçamentos
         </h5>
     </div>
 
     <div class="box-content">
     <div class="row">
  
-      <div class="span14">
+      <div class="span15">
          <%= form_tag(pega_orc_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
           <%= select(:orcamento, :selec, [ 'nome','placa'], {include_blank: true}) %>
@@ -49,3 +50,4 @@
 <br>
 
 <%= link_to 'New Orcamento', new_orcamento_path %>
+</div>

@@ -32,6 +32,7 @@ class ClientesController < ApplicationController
       orc.veiculo_id =  Veiculo.last.id 
       orc.valor_total = 0
       orc.status =  'Ativo'
+      orc.quilometragem = params[:quilometragem]
       orc.save
     end
       redirect_to orcamentos_path, notice: 'Cliente e veiculo criado com sucessso'
@@ -43,7 +44,7 @@ class ClientesController < ApplicationController
   # PATCH/PUT /clientes/1
   def update
     if @cliente.update(cliente_params)
-      redirect_to @cliente, notice: 'Cliente was successfully updated.'
+      redirect_to @cliente, notice: 'Cliente editado com sucesso.'
     else
       render :edit
     end

@@ -17,12 +17,71 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-     <style>
-        #body-content { padding-top: 0px;}
-    </style>
+     
   </head>
-
      <body>
+	
+<%=image_tag("logo.png", class: "img-logo")%>
+
+      <div class="navbar">
+
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="dashboard.html" class="brand"><i class="icon-leaf">Dashboard</i></a>
+                    <div id="app-nav-top-bar" class="nav-collapse">
+                        <ul class="nav">
+                            
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="dashboard.html">Teste</a>
+                                        </li>
+                                        <li>
+                                            <a href="form.html">Teste</a>
+                                        </li>
+                                        <li>
+                                            <a href="custom-view.html">Teste</a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html">Teste</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Financeiro
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="demo-horizontal-nav.html">Horizontal</a>
+                                        </li>
+                                        <li>
+                                            <a href="demo-horizontal-fixed-nav.html">Horizontal Fixed</a>
+                                        </li>
+                                        <li>
+                                            <a href="demo-vertical-nav.html">Vertical</a>
+                                        </li>
+                                        <li>
+                                            <a href="demo-vertical-fixed-nav.html">Vertical Fixed</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="login.html" class="brand">Auto Unity</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
         <div id="body-container">
             <div id="body-content">
 		            <div class="body-nav body-nav-vertical body-nav-fixed">
@@ -68,12 +127,6 @@
 		                            <%=link_to fornecedors_path do %>
 		          					<i class="fa fa-handshake-o icon-large"></i>
 		          					Fornecedor
-		          					<%end%>
-		                                </li>
-		                                           <li>     
-		                            <%=link_to fornecedors_path do %>
-		          					<i class="fa fa-book icon-large"></i>
-		          					Financeiro
 		          					<%end%>
 		                                </li>
 		                        </ul>

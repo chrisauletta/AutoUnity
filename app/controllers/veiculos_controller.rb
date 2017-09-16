@@ -13,15 +13,18 @@ class VeiculosController < ApplicationController
   # GET /veiculos/new
   def new
     @veiculo = Veiculo.new
+    @clientes = Cliente.first(10)
   end
 
   # GET /veiculos/1/edit
   def edit
+     @clientes = Cliente.first(10)
   end
 
   # POST /veiculos
   def create
     @veiculo = Veiculo.new(veiculo_params)
+    @veiculo.cliente_id = params[:cliente_id]
 
     if @veiculo.save
       redirect_to @veiculo, notice: 'Veiculo was successfully created.'
@@ -53,6 +56,6 @@ class VeiculosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def veiculo_params
-      params.require(:veiculo).permit(:placa, :marca, :modelo, :ano, :cor, :cliente_id)
+      params.require(:veiculo).permit(:placa, :marca, :modelo, :ano, :cor)
     end
 end

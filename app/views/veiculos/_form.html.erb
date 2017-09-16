@@ -1,8 +1,6 @@
-<%= form_with(model: veiculo, local: true) do |form| %>
-  <% if veiculo.errors.any? %>
+     <% if veiculo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
-
       <ul>
       <% veiculo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,6 +9,48 @@
     </div>
   <% end %>
 
+  <div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Clientes
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span16">
+<%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_c %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+<% end %>
+
+<%= form_with(model: veiculo, local: true) do |form| %>          
+<table id="veiculo">
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Telefone</th>
+      <th class="span3">Celular</th>
+      <th class="span3">Email</th>
+      <th class="span3">Observacoes</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render 'clientes/table/table_cliente_newVeiculo', clientes: @clientes%>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+  
   <div class="field">
     <%= form.label :placa %>
     <%= form.text_field :placa, id: :veiculo_placa %>
@@ -36,10 +76,6 @@
     <%= form.text_field :cor, id: :veiculo_cor %>
   </div>
 
-  <div class="field">
-    <%= form.label :id_cliente_id %>
-    <%= form.text_field :id_cliente_id, id: :veiculo_id_cliente_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

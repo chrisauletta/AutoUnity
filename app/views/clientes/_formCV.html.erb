@@ -1,0 +1,127 @@
+<%= form_with(model: cliente, local: true) do |form| %>
+
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+ <div class="leftcontact">
+
+  <div class="form-group">
+    <%= form.label :nome %><span>*</span>
+    <span class="icon-case"><i class="fa fa-user"></i></span>
+    <%= form.text_field :nome, id: :cliente_nome %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :oficio %>
+    <%= form.text_field :oficio, id: :cliente_oficio %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rua %>
+    <%= form.text_field :rua, id: :cliente_rua %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :cliente_bairro %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade, id: :cliente_cidade %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :uf %>
+    <%= form.text_field :uf, id: :cliente_uf %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cep %>
+    <%= form.text_field :cep, id: :cliente_cep %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone, id: :cliente_telefone %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :celular %>
+    <%= form.text_field :celular, id: :cliente_celular %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comercial %>
+    <%= form.text_field :comercial, id: :cliente_comercial %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :cliente_email %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observacoes %>
+    <%= form.text_field :observacoes, id: :cliente_observacoes %>
+  </div>
+
+  </div>
+
+  <div class="rightcontact">
+    <%= form.fields_for(:veiculo) do |ff|%>
+
+    <div class="field">
+    <%= ff.label :placa %>
+    <%= ff.text_field :placa, id: :veiculo_placa %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :marca %>
+    <%= ff.text_field :marca, id: :veiculo_marca %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :modelo %>
+    <%= ff.text_field :modelo, id: :veiculo_modelo %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :ano %>
+    <%= ff.text_field :ano, id: :veiculo_ano %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :cor %>
+    <%= ff.text_field :cor, id: :veiculo_cor %>
+  </div>
+
+    <%end%>
+
+  <div class="field">
+    <%= label_tag :quilometragem %>
+    <%= text_field_tag :quilometragem %>
+  </div>
+
+  <div class="form-inline">
+  <%= check_box_tag :orc_check, 'yes'%>
+  Selecione para criar orçamento
+  </div>
+  </br>
+
+  <div class="actions">
+    <%= form.submit "Cadastrar" %>
+  </div>
+</div>
+
+
+<% end %>
