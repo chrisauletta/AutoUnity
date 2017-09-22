@@ -61,9 +61,9 @@ Quilometragem:
           <thead>
             <tr>
               <th class="span3">Nome</th>
-              <th class="span3">quantidade</th>
-              <th class="span3">Fabricante</th>
-              <th class="span2">Preco</th>
+              <th class="span3">Preço</th>
+              <th class="span3">Quantidade</th>
+              <th class="span2">Preco Total</th>
             </tr>
           </thead>
 
@@ -72,9 +72,9 @@ Quilometragem:
 
                 <tr>
                 <td class="span3"><%= peca_orc.peca.nome %></td>
-                <td class="span3"><%= peca_orc.peca.fabricante %></td>
+                <td class="span3"><%= peca_orc.preco_o %></td>
                 <td class="span3"><%= peca_orc.quantidade %></td>
-                <td class="span2"><%= peca_orc.preco_o %></td>
+                <td class="span2"><%= peca_orc.preco_o * peca_orc.quantidade%></td>
                 <td>
                 <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
                 </td>

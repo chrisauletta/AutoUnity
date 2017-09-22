@@ -23,13 +23,18 @@ class VeiculosController < ApplicationController
 
   # POST /veiculos
   def create
+    if params[:cliente_id] != nil
     @veiculo = Veiculo.new(veiculo_params)
     @veiculo.cliente_id = params[:cliente_id]
 
     if @veiculo.save
       redirect_to @veiculo, notice: 'Veiculo was successfully created.'
     else
-      render :new
+    redirect_to new_veiculo_path, notice: 'Cliente nao informado'
+    end
+    
+    else
+    redirect_to new_veiculo_path, notice: 'Cliente nao informado'
     end
   end
 

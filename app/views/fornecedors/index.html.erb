@@ -1,6 +1,17 @@
+<div class="span16">
 <p id="notice"><%= notice %></p>
+<div class="box pattern pattern-sandstone">
 
-<h1>Fornecedors</h1>
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+          Fornecedor
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
 
 <table>
   <thead>
@@ -20,14 +31,19 @@
         <td class="span3"><%= fornecedor.ramo %></td>
         <td class="span3"><%= fornecedor.vendedor %></td>
         <td class="span3"><%= fornecedor.telefone %></td>
-        <td class="span3"><%= link_to 'Exibir', fornecedor %>
-        <%= link_to 'Editar', edit_fornecedor_path(fornecedor) %>
-        <%= link_to 'Deletar', fornecedor, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <td class="span3"><%= link_to 'Exibir', fornecedor, class:"btn btn-small btn-default" %>
+        <%= link_to 'Editar', edit_fornecedor_path(fornecedor), class:"btn btn-small btn-primary" %>
+        <%= link_to 'Deletar', fornecedor, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-small btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
 
+</div>
+</div>
 <br>
 
-<%= link_to 'New Fornecedor', new_fornecedor_path, class:"btn btn-primary"%>
+<%= link_to 'Novo Fornecedor', new_fornecedor_path, class:"btn btn-primary"%>

@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <%= form_with(model: orcamento, local: true) do |form| %>
 
  
@@ -57,7 +58,7 @@
 
   <div class="field">
     <%= form.label :Status %>
-    <%= select(:orcamento, :status, [ 'Cotaçao','Pendende de aprovaçao','Aprovado', 'Encerrado'], {include_blank: true}) %>
+    <%= select(:orcamento, :status, [ 'Cotaçao','Pendende de aprovaçao','Aprovado', 'Encerrado']) %>
   </div>
 
 

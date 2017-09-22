@@ -28,6 +28,7 @@ class OrcamentosController < ApplicationController
 
   # POST /orcamentos
   def create
+    if params[:veiculo_id] != nil
     @orcamento = Orcamento.new(orcamento_params)
     @orcamento.valor_total = 0
     @orcamento.cliente_id = Veiculo.find(params[:veiculo_id]).cliente_id
@@ -35,7 +36,10 @@ class OrcamentosController < ApplicationController
     if @orcamento.save
       redirect_to @orcamento, notice: 'Orcamento was successfully created.'
     else
-      render :new
+      redirect_to new_orcamento_path, notice: 'Veiculo nao informado'
+    end
+    else
+      redirect_to new_orcamento_path, notice: 'Veiculo nao informado'
     end
   end
 
