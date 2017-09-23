@@ -1,0 +1,94 @@
+<div class="span16">
+	
+	<table>
+  <thead class="t-danger">
+    <tr>
+      <th class="span2", onclick="sortTable(0)">Status</th>
+      <th class="span3">Cliente</th>
+      <th class="span2">Veiculo</th>
+      <th class="span2">Placa</th>
+      <th class="span2">Quilometragem</th>
+      <th class="span2">Valor total</th>
+      <th class="span4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @orcamentoC.each do |orcamento| %>
+      <tr>
+        <td class="span2"><%= orcamento.status %></td>
+        <td class="span3"><%= orcamento.cliente.nome %></td>
+        <td class="span2"><%= orcamento.veiculo.marca %></td>
+        <td class="span2"><%= orcamento.veiculo.placa %></td>
+        <td class="span2"><%= orcamento.quilometragem %></td>
+        <td class="span2"><%= orcamento.valor_total %></td>
+        <td class="span4">
+        <div class="btn-group">
+        <button class="btn ">Funçoes</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+        <%= link_to 'Relacionar Peças', orcamento %>
+        <%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf'), :target => '_blank' %>
+          
+        </ul>
+      </div>
+        </td>
+
+      </tr>
+     <% end %>
+
+      </tbody>
+      </table>
+
+</br>
+</br>
+
+<table id="table_index">
+  <thead class="t-pendent">
+    <tr>
+      <th class="span2">Status</th>
+      <th class="span3">Cliente</th>
+      <th class="span2">Veiculo</th>
+      <th class="span2">Placa</th>
+      <th class="span2">Quilometragem</th>
+      <th class="span2">Valor total</th>
+      <th class="span4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orcamentoP.each do |orcamento| %>
+      <tr>
+        <td class="span2"><%= orcamento.status %></td>
+        <td class="span3"><%= orcamento.cliente.nome %></td>
+        <td class="span2"><%= orcamento.veiculo.marca %></td>
+        <td class="span2"><%= orcamento.veiculo.placa %></td>
+        <td class="span2"><%= orcamento.quilometragem %></td>
+        <td class="span2"><%= orcamento.valor_total %></td>
+        <td class="span4">
+        <div class="btn-group">
+        <button class="btn ">Funçoes</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+        <%= link_to 'Relacionar Peças', orcamento %>
+        <%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf'), :target => '_blank' %>
+          
+        </ul>
+      </div>
+        </td>
+
+      </tr>
+    <% end %>
+</tbody>
+</table>
+
+
+</div>

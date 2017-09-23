@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/estoque/edit" => "estoque#salva"
   get "peca/teste" => "pecas#teste"
   
+#Peças Orcamento
   get "/peca_orc/:id" => "peca_orc#index", as: :peca_orc
   post "/peca_orc/:id" => "peca_orc#inclui_peca", as: :inclui_peca
   delete "/peca_orc/:id" => "peca_orc#destroy"
@@ -35,5 +36,8 @@ Rails.application.routes.draw do
 
   get "/bucas_orcamento" => "orcamentos#busca_orcamento", as: :pega_orc
 
-  root "pecas#index"
+  root "dashboard#index"
+
+  #Dashboard
+  get "/dashboard" => "dashboard#index"
 end

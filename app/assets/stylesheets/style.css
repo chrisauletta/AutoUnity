@@ -47,6 +47,14 @@ th,td
 	border-bottom: 1px solid #fff;
 }
 
+.t-danger{
+	background: #ff442b;
+}
+
+.t-pendent{
+	background: #ffc52c;
+}
+
 .modal-lg{
     /* new custom width */
     width: 900px;

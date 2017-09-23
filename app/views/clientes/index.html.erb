@@ -1,3 +1,4 @@
+<div class="span16">
 <p id="notice"><%= notice %></p>
 <div class="box pattern pattern-sandstone">
 
@@ -10,7 +11,7 @@
 
     <div class="box-content">
     <div class="row">
-    <div class="span16">
+    <div class="span15">
 <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
           <%= label_tag :nome %>
@@ -41,3 +42,4 @@
 <br>
 
 <%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-primary" %>
+</div>
