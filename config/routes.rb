@@ -40,4 +40,6 @@ Rails.application.routes.draw do
 
   #Dashboard
   get "/dashboard" => "dashboard#index"
+    #chamada da table dashboard
+  get "/dashboard/:status" => "dashboard#busca_orcamento", as: :busca_orc
 end

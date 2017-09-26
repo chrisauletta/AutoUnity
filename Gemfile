@@ -30,3 +30,6 @@ gem 'wkhtmltopdf-binary'
 gem 'mousetrap-rails'
 
 gem 'coffee-rails'
+
+gem "chartkick"
+
