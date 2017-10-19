@@ -1,7 +1,7 @@
 <div class="span16">
 
 
-<%= pie_chart Orcamento.group(:status).count, colors: ["pink", "green", "blue", "red"] %>
+<%= pie_chart Orcamento.group(:status).count, legend: "left"%>
 
 <%= link_to "selecione", busca_orc_path("Ativo"),:remote => true%>
 
@@ -9,7 +9,28 @@
 </br>
 
 	
-	<table id="table_dash">
+	<div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Orçamentos
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+ 
+      <div class="span15">
+         <%= form_tag(pega_orc_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :status %>
+          <%= select(:orcamento, :status, [ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalisado', '10. Aguardando Pagamento'], {include_blank: true}) %>
+
+          <%= submit_tag "Encontrar"%>
+          </div>
+    <% end %>
+<table id="table_index">
   <thead>
     <tr>
       <th class="span2", onclick="sortTable(0)">Status</th>
@@ -23,9 +44,13 @@
   </thead>
 
   <tbody>
-	
 
-      </tbody>
-      </table>
+  </tbody>
+</table>
+</div><!-- Fecha span14-->
+</div><!-- Fecha row-->
+</div><!-- Fecha box content-->
+</div><!-- Fecha box-->
+
 
 </div>

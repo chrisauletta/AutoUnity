@@ -3,7 +3,7 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos
   def index
-    @veiculos = Veiculo.all
+
   end
 
   # GET /veiculos/1
@@ -51,6 +51,17 @@ class VeiculosController < ApplicationController
   def destroy
     @veiculo.destroy
     redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.'
+  end
+
+  def busca_veiculo
+  op = params[:veiculo] [:op]
+   @nome = params[:nome_c]
+   puts op
+   @veiculo_search = Veiculo.where "#{op}" " like ?", "%#{@nome}%"
+    respond_to do |format|
+      format.html 
+      format.js
+    end 
   end
 
   private

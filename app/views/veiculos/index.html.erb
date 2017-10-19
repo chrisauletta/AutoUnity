@@ -14,15 +14,16 @@
     <div class="row">
     <div class="span15">
 
-<%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
+<%= form_tag(pega_veiculo_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+           <%= select(:veiculo, :op, [ 'PLACA', 'MARCA', 'MODELO']) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>
           </div>
 <% end %>
 
-<table>
+<table id="table_veiculo">
   <thead>
     <tr>
       <th class="span3">Placa</th>
@@ -35,18 +36,7 @@
   </thead>
 
   <tbody>
-    <% @veiculos.each do |veiculo| %>
-      <tr>
-        <td class="span3"><%= veiculo.placa %></td>
-        <td class="span3"><%= veiculo.marca %></td>
-        <td class="span3"><%= veiculo.modelo %></td>
-        <td class="span3"><%= veiculo.ano %></td>
-        <td class="span3"><%= veiculo.cor %></td>
-        <td class="span5"><%= link_to 'Exibir', veiculo, class:"btn btn-small  btn-default" %>
-        <%= link_to 'Editar', edit_veiculo_path(veiculo), class:"btn btn-small  btn-primary" %>
-        <%= link_to 'Deletar', veiculo, method: :delete, data: { confirm: 'Tem certeza' },class:"btn btn-small  btn-danger" %></td>
-      </tr>
-    <% end %>
+    
   </tbody>
 </table>
 </div>

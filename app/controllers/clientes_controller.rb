@@ -3,7 +3,6 @@ class ClientesController < ApplicationController
 
   # GET /clientes
   def index
-    @clientes = Cliente.all
 
   end
 
@@ -11,14 +10,26 @@ class ClientesController < ApplicationController
   def show
   end
 
+  def new_menu
+    @cliente = Cliente.new
+    @cliente.build_endereco
+
+    respond_to do |format|
+      format.html 
+      format.js
+    end 
+  end
+
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @cliente.build_endereco
     @cliente.veiculo.build
-  end
+   end
 
   # GET /clientes/1/edit
   def edit
+    @endereco = @cliente.endereco
   end
 
   # POST /clientes
@@ -33,9 +44,20 @@ class ClientesController < ApplicationController
       orc.valor_total = 0
       orc.status =  'Ativo'
       orc.quilometragem = params[:quilometragem]
+      orc.status = params[:orcamento] [:status]
       orc.save
     end
       redirect_to orcamentos_path, notice: 'Cliente e veiculo criado com sucessso'
+    else
+      render :new
+    end
+  end
+
+   def create_menu
+    @cliente = Cliente.new(cliente_params_menu)
+    orc_check = params[:orc_check]
+    if @cliente.save
+      redirect_to orcamentos_path, notice: 'Cliente criado com sucessso'
     else
       render :new
     end
@@ -52,7 +74,7 @@ class ClientesController < ApplicationController
 
   # DELETE /clientes/1
   def destroy
-    Veiculo.destroy params["id"]
+    Veiculo.where(cliente_id: params["id"]).destroy_all 
     @cliente.destroy
     redirect_to clientes_url, notice: 'Cliente was successfully destroyed.'
   end
@@ -82,6 +104,11 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor])
+      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
     end
+
+    def cliente_params_menu
+      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
+    end
+
 end

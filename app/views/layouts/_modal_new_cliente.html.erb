@@ -1,17 +1,14 @@
-<%= form_with(model: cliente, local: true) do |form| %>
+<div id="modalCad" class="modal hide fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-header">
 
-  <% if cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+					   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					   <h3 id="myModalLabel">Editar Peça</h3>
+					  </div>
+					  <div class="modal-body">
 
-      <ul>
-      <% cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+	<%= form_for(@post, url: new_cliente2_path) do |form| %>
 
-  <% end %>
+  
  <div class="leftcontact">
 
   <div class="form-group">
@@ -98,3 +95,8 @@
   </div>
 
 <% end %>
+
+
+				</div>
+				</div>
+		        

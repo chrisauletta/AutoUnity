@@ -36,10 +36,15 @@ Rails.application.routes.draw do
 
   get "/bucas_orcamento" => "orcamentos#busca_orcamento", as: :pega_orc
 
+  get "/busca_veiculo" => "veiculos#busca_veiculo", as: :pega_veiculo
+
   root "dashboard#index"
 
   #Dashboard
   get "/dashboard" => "dashboard#index"
     #chamada da table dashboard
   get "/dashboard/:status" => "dashboard#busca_orcamento", as: :busca_orc
+    #chamada do menu para criar cliente
+  get "/cliente/new_menu" => "clientes#new_menu", as: :new_cliente_menu
+  post "/cliente" => "clientes#create_menu", as: :new_cliente2
 end
