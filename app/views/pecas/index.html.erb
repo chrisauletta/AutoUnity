@@ -22,7 +22,7 @@
           </div>
           <% end %>
 
-  <table id="pecas" class="table">
+  <table id="pecas_index" class="table">
   <thead>
     <tr>
       <th class="span3"></th>
@@ -36,18 +36,7 @@
   </thead>
 
   <tbody>
-    <% @pecas.each do |peca| %>
-        <tr>
-        <td class="span3"><%= peca.nome %></td>
-        <td class="span3"><%= peca.tipo %></td>
-        <td class="span3"><%= peca.fabricante %></td>
-        <td class="span3"><%= peca.preco %></td>
-        <td class="span3"><%= peca.marca_carro %></td>
-        <td class="span3">
-        <%= link_to 'Editar', edit_peca_path(peca), class:"btn btn-small btn-default" %>
-        <%= link_to 'Deletar', peca, method: :delete, class:"btn btn-small btn-danger" %></td>
-      </tr>
-    <% end %>
+  
   </tbody>
 </table>
 </div>

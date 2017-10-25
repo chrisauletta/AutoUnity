@@ -1,0 +1,10 @@
+  <% peca_f.each do |peca| %>
+        <tr>
+        <td class="span3"><%= peca.peca.nome %></td>
+        <td class="span3"><%= peca.peca.fornecedor.nome_fornecedor %></td>
+        <td class="span3"><%= peca.orcamento.cliente.nome %></td>
+        <td class="span3"><%= peca.orcamento.veiculo.modelo %></td>
+        <td class="span3"><%= peca.created_at %></td>
+        <td class="span3">
+      </tr>
+    <% end %>

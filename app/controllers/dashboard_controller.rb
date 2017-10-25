@@ -1,8 +1,7 @@
 class DashboardController < ApplicationController
 
 	def index
-		@orcamentoC = Orcamento.where "status = 'Cotaçao'"
-		@orcamentoP = Orcamento.where "status = 'Pendende de aprovaçao'"
+	
 	end
 
 	def busca_orcamento

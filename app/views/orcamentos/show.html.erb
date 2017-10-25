@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <!-- Infos de orcamento cliente e veiculo -->
+<div class="span16">
 
 <div class="row">
 <div class="span14">
-<div class="form-inline">
+<div class="form-inline margin_form">
 Nome:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.nome%></span>
 Telefone:
@@ -13,8 +14,7 @@ Celular:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.celular%></span>
 </div>
 
-</br>
-<div class="form-inline">
+<div class="form-inline margin_form">
 Placa:
 <span class="input-large uneditable-input"> <%=@orcamento.veiculo.placa%> </span>
 Marca:
@@ -23,14 +23,12 @@ Modelo:
 <span class="input-large uneditable-input"><%=@orcamento.veiculo.modelo%></span>
 </div>
 
-</br>
-<div class="form-inline">
-Status
+<div class="form-inline margin_form">Status
 <span class="input-large uneditable-input"><%= @orcamento.status %></span>
 Quilometragem:
 <span class="input-large uneditable-input"><%= @orcamento.quilometragem %></span>
-</p>
 </div>
+
 </div>
 </div>
 
@@ -142,21 +140,37 @@ Quilometragem:
 </div>
 
 
-<div class="row valor_total">
-<div class="form-inline">
-
-  <strong>Valor total:</strong>
- <span class="input-medium uneditable-input height-label"><h1><%= @orcamento.valor_total %></h1></span>
-
-</div>
-</div>
-
-</br>
-
+<div class="row">
+<div class="span5">
 <p>
   <strong>Descricao:</strong>
   <%= @orcamento.descricao %>
 </p>
+</div>
+
+<div class="span6">
+    <%=link_to status_orcamento_js_path(@orcamento), :remote => true, class:"btn btn-large" do %>
+    <i class="icon-random icon-large""></i>
+    </br>
+    Troca Status
+    <%end%>
+
+    <button class="btn btn-large"><i class="icon-print icon-large"></i><br/>Imprimir</button>
+</div>
+
+  <div class="span5">
+   <div class="header-right2">
+    <h4>Valor Peças:</h4>
+    <h4>Valor Serviços:</h4>
+    <h3>Valor Total: <%=@orcamento.valor_total%></h3>
+  </div> 
+</div>
+
+</div>
+
+
+
 
 <%= link_to 'Editar', edit_orcamento_path(@orcamento) %> |
 <%= link_to 'Voltar', orcamentos_path %>
+</div>

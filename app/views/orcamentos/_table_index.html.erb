@@ -18,8 +18,9 @@
         <%= link_to 'Exibir', orcamento %>
         <%= link_to 'Editar', edit_orcamento_path(orcamento) %>
         <%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Editar', report_orc_path(orcamento, :format => 'pdf') %>
-          
+        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf') %>
+        <%= link_to 'Trocar Status' status_orcamento_js_path(orcamento), :remote => true %> 
+
         </ul>
       </div>
         </td>

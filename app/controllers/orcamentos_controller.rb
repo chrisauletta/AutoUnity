@@ -36,7 +36,7 @@ class OrcamentosController < ApplicationController
     if @orcamento.save
       redirect_to @orcamento, notice: 'Orcamento was successfully created.'
     else
-      redirect_to new_orcamento_path, notice: 'Veiculo nao informado'
+      redirect_to new_orcamento_path, notice: @orcamento.errors.full_messages
     end
     else
       redirect_to new_orcamento_path, notice: 'Veiculo nao informado'
@@ -75,7 +75,7 @@ class OrcamentosController < ApplicationController
     format.html 
     format.js 
   end
-
+end 
     
 
   def edit_peca_orc
@@ -86,7 +86,25 @@ class OrcamentosController < ApplicationController
   end
   end
 
+  def status_orcamento_js
+  @orc = Orcamento.find(params[:id])
+    respond_to do |format|
+      format.html 
+      format.js 
+    end
   end
+
+  def status_orcamento
+    status = params[:orcamento] [:status]
+    orc = Orcamento.find(params[:id])
+    orc.status = status
+    orc.save
+     respond_to do |format|
+      format.html 
+      format.js 
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

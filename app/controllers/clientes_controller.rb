@@ -47,7 +47,7 @@ class ClientesController < ApplicationController
       orc.status = params[:orcamento] [:status]
       orc.save
     end
-      redirect_to orcamentos_path, notice: 'Cliente e veiculo criado com sucessso'
+      redirect_to orcamentos_path, @cliente, notice: @cliente.errors.full_messages
     else
       render :new
     end
@@ -104,11 +104,11 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
+      params.require(:cliente).permit(:nome, :sobrenome,:oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
     end
 
     def cliente_params_menu
-      params.require(:cliente).permit(:nome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
+      params.require(:cliente).permit(:nome, :sobrenome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
     end
 
 end

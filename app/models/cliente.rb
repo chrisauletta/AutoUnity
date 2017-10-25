@@ -5,4 +5,8 @@ class Cliente < ApplicationRecord
 	has_one :endereco
 	accepts_nested_attributes_for :endereco	
 
+	validates :nome, presence: true
+	validates :sobrenome, presence: true
+	validates :celular, presence: true
+	
 end

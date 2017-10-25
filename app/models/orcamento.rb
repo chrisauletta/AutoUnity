@@ -7,4 +7,10 @@ class Orcamento < ApplicationRecord
 
   has_many :servico_orc
   has_many :servico, through: :servico_orc
+
+  validates :status, presence: true
+  validates :quilometragem, presence: true
+
+ 
+
 end

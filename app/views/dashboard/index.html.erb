@@ -1,10 +1,6 @@
 <div class="span16">
 
-
-<%= pie_chart Orcamento.group(:status).count, legend: "left"%>
-
-<%= link_to "selecione", busca_orc_path("Ativo"),:remote => true%>
-
+<%= pie_chart Orcamento.group(:status).count, id: "pie_status" ,legend: "left"%>
 </br>
 </br>
 

@@ -79,3 +79,14 @@ hr{
 	font-size: 30px;
 	text-align: right;
 }
+
+ .header-right2{
+     position: relative;
+     right: 0px;
+     bottom: 0px;
+     width: 200px;
+    }
+
+ .margin_form{
+ 	margin-bottom: 10px;
+ }

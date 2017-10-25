@@ -1,0 +1,48 @@
+<div class="span16">
+<div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+          Peças
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
+
+<p id="notice"><%= notice %></p>
+
+      <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_p %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+
+  <table id="pecas_index" class="table">
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Fornecedor</th>
+      <th class="span3">Cliente</th>
+      <th class="span3">Veiculo</th>
+      <th class="span3">Data</th>
+      <th class="span3" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render 'financeiro/table/index_financeiro', peca_f: @peca_f %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+</div>

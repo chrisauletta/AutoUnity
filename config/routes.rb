@@ -31,8 +31,12 @@ Rails.application.routes.draw do
   get "/busca_cliente" => "clientes#busca_cliente", as: :pega_cliente
 
   get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
-  
+
+#chama o modal edit peca orcamento
   get "/edit_peca_orc/:id" => "orcamentos#edit_peca_orc", as: :edit_peca_orc
+
+#chama modal edit status orcamento
+  get "/status_orcamento/:id" => "orcamentos#status_orcamento_js", as: :status_orcamento_js
 
   get "/bucas_orcamento" => "orcamentos#busca_orcamento", as: :pega_orc
 
@@ -43,8 +47,14 @@ Rails.application.routes.draw do
   #Dashboard
   get "/dashboard" => "dashboard#index"
     #chamada da table dashboard
-  get "/dashboard/:status" => "dashboard#busca_orcamento", as: :busca_orc
+  get "/dashboard_busca" => "dashboard#busca_orcamento", as: :busca_orc
     #chamada do menu para criar cliente
   get "/cliente/new_menu" => "clientes#new_menu", as: :new_cliente_menu
   post "/cliente" => "clientes#create_menu", as: :new_cliente2
+
+  #Financeiro
+  get "/financeiro" => "financeiro#index"
+
+  #Status Orcamento
+  post "status_orcamento/edit/:id" => "orcamentos#status_orcamento", as: :status_orcamento
 end
