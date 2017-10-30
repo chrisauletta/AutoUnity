@@ -64,11 +64,12 @@ Quilometragem:
               <th class="span2">Preco Total</th>
             </tr>
           </thead>
-
+          <%sumP = 0%>
           <tbody>
               <% @orcamento.peca_orc.each do |peca_orc| %>
 
                 <tr>
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
                 <td class="span3"><%= peca_orc.peca.nome %></td>
                 <td class="span3"><%= peca_orc.preco_o %></td>
                 <td class="span3"><%= peca_orc.quantidade %></td>
@@ -115,11 +116,11 @@ Quilometragem:
               <th class="span4"></th>
             </tr>
           </thead>
-
+          <%sumS = 0%>
           <tbody>
               <% @orcamento.servico_orc.each do |servico_orc| %>
-
                 <tr>
+                <%sumS += servico_orc.preco_s%>
                 <td class="span3"><%= servico_orc.servico.nome %></td>
                 <td class="span3"><%= servico_orc.preco_s %></td>
                 <td class="span4"></td>
@@ -155,13 +156,18 @@ Quilometragem:
     Troca Status
     <%end%>
 
-    <button class="btn btn-large"><i class="icon-print icon-large"></i><br/>Imprimir</button>
+    <%= link_to report_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
+<i class="icon-print icon-large"></i>
+    </br>
+    Imprimir
+    <%end%>
+
 </div>
 
   <div class="span5">
    <div class="header-right2">
-    <h4>Valor Peças:</h4>
-    <h4>Valor Serviços:</h4>
+    <h4>Valor Peças: <%=sumP%></h4>
+    <h4>Valor Serviços: <%=sumS%></h4>
     <h3>Valor Total: <%=@orcamento.valor_total%></h3>
   </div> 
 </div>

@@ -35,19 +35,18 @@ class ClientesController < ApplicationController
   # POST /clientes
   def create
     @cliente = Cliente.new(cliente_params)
-    orc_check = params[:orc_check]
+    km = params[:quilometragem]
     if @cliente.save
-      if orc_check == 'yes'
+      if km != nil
       orc = Orcamento.new
       orc.cliente_id = Cliente.last.id
       orc.veiculo_id =  Veiculo.last.id 
       orc.valor_total = 0
-      orc.status =  'Ativo'
-      orc.quilometragem = params[:quilometragem]
+      orc.quilometragem = km
       orc.status = params[:orcamento] [:status]
       orc.save
-    end
-      redirect_to orcamentos_path, @cliente, notice: @cliente.errors.full_messages
+      end
+    redirect_to orcamentos_path, notice: "Cadastro com sucesso"
     else
       render :new
     end

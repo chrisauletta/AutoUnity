@@ -28,7 +28,7 @@ class VeiculosController < ApplicationController
     @veiculo.cliente_id = params[:cliente_id]
 
     if @veiculo.save
-      redirect_to @veiculo, notice: 'Veiculo was successfully created.'
+      redirect_to @veiculo, notice: 'Veiculo Criado Com Sucesso'
     else
     redirect_to new_veiculo_path, notice: 'Cliente nao informado'
     end
@@ -41,7 +41,7 @@ class VeiculosController < ApplicationController
   # PATCH/PUT /veiculos/1
   def update
     if @veiculo.update(veiculo_params)
-      redirect_to @veiculo, notice: 'Veiculo was successfully updated.'
+      redirect_to @veiculo, notice: 'Veiculo Atualizado Com Sucesso'
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class VeiculosController < ApplicationController
   # DELETE /veiculos/1
   def destroy
     @veiculo.destroy
-    redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.'
+    redirect_to veiculos_url, notice: 'Veiculo Deletado Com Sucesso'
   end
 
   def busca_veiculo

@@ -37,7 +37,7 @@ class PecasController < ApplicationController
     @peca = Peca.new(peca_params)
 
     if @peca.save
-      redirect_to @peca, notice: 'Peca was successfully created.'
+      redirect_to pecas_path, notice: 'Peça Criada Com Sucesso.'
     else
       render :new
     end
@@ -46,7 +46,7 @@ class PecasController < ApplicationController
   # PATCH/PUT /pecas/1
   def update
     if @peca.update(peca_params)
-      redirect_to @peca, notice: 'Peca was successfully updated.'
+      redirect_to pecas_path, notice: 'Peça Editada Com Sucesso.'
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class PecasController < ApplicationController
   # DELETE /pecas/1
   def destroy
     @peca.destroy
-    redirect_to pecas_url, notice: 'Peca was successfully destroyed.'
+    redirect_to pecas_url, notice: 'Peça Deletada Com Sucesso.'
   end
 
   private

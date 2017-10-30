@@ -3,7 +3,7 @@ class Cliente < ApplicationRecord
 	accepts_nested_attributes_for :veiculo, :allow_destroy => true 
 
 	has_one :endereco
-	accepts_nested_attributes_for :endereco	
+	accepts_nested_attributes_for :endereco, :allow_destroy => true 	
 
 	validates :nome, presence: true
 	validates :sobrenome, presence: true

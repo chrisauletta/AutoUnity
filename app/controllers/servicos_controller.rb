@@ -24,7 +24,7 @@ class ServicosController < ApplicationController
     @servico = Servico.new(servico_params)
 
     if @servico.save
-      redirect_to @servico, notice: 'Servico was successfully created.'
+      redirect_to servicos_path, notice: 'Serviço Criado Com Sucesso'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class ServicosController < ApplicationController
   # PATCH/PUT /servicos/1
   def update
     if @servico.update(servico_params)
-      redirect_to @servico, notice: 'Servico was successfully updated.'
+      redirect_to servicos_path, notice: 'Serviço Editado Com Sucesso.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class ServicosController < ApplicationController
   # DELETE /servicos/1
   def destroy
     @servico.destroy
-    redirect_to servicos_url, notice: 'Servico was successfully destroyed.'
+    redirect_to servicos_url, notice: 'Serviço Excluido Com Sucesso.'
   end
 
   private

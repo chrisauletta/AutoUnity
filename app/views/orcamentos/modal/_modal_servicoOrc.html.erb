@@ -25,7 +25,6 @@
           </thead>
 
           <tbody>
-        
        <% @servico_orc.each do |servico| %>
                     <tr>
                     <td class="span4"><%= servico.nome %></td>
@@ -47,7 +46,7 @@
     <%= label_tag :Preco %>
     <%= text_field_tag :preco_s%>
 
-      <%= submit_tag "Vai!", class:"btn btn-primary"%>
+      <%= submit_tag "Ok", class:"btn btn-primary"%>
     </div>
   </div>
   <%end%>
