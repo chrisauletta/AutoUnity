@@ -1,0 +1,2 @@
+class ClienteJ < ApplicationRecord
+end

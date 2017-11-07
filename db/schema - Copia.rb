@@ -10,33 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106015304) do
-
-  create_table "cliente_fs", force: :cascade do |t|
-    t.string "nome"
-    t.string "sobrenome"
-    t.string "oficio"
-    t.string "cpf"
-    t.string "rg"
-    t.string "sexo"
-    t.integer "cliente_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_cliente_fs_on_cliente_id"
-  end
-
-  create_table "cliente_js", force: :cascade do |t|
-    t.string "razao_social"
-    t.string "nome_fantasia"
-    t.string "cnpj"
-    t.string "representante"
-    t.integer "cliente_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_cliente_js_on_cliente_id"
-  end
+ActiveRecord::Schema.define(version: 20171030203957) do
 
   create_table "clientes", force: :cascade do |t|
+    t.string "nome"
+    t.string "oficio"
     t.string "telefone"
     t.string "celular"
     t.string "comercial"
@@ -44,13 +22,23 @@ ActiveRecord::Schema.define(version: 20171106015304) do
     t.string "observacoes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rua"
-    t.string "bairro"
-    t.string "cidade"
+    t.string "sobrenome"
+    t.string "cpf"
+    t.string "rg"
+    t.string "sexo"
+    t.integer "endereco_id"
+  end
+
+  create_table "enderecos", force: :cascade do |t|
     t.string "uf"
-    t.string "cep"
-    t.integer "numero"
+    t.string "cidade"
+    t.string "bairro"
+    t.string "rua"
+    t.string "numero"
     t.string "complemento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cep"
   end
 
   create_table "estoques", force: :cascade do |t|

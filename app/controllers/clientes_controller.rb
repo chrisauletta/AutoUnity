@@ -1,6 +1,5 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-
   # GET /clientes
   def index
 
@@ -10,20 +9,16 @@ class ClientesController < ApplicationController
   def show
   end
 
-  def new_menu
+  def newj
     @cliente = Cliente.new
-    @cliente.build_endereco
-
-    respond_to do |format|
-      format.html 
-      format.js
-    end 
+    @cliente.build_cliente_j
+    @cliente.veiculo.build
   end
 
   # GET /clientes/new
   def new
     @cliente = Cliente.new
-    @cliente.build_endereco
+    @cliente.build_cliente_f
     @cliente.veiculo.build
    end
 
@@ -34,7 +29,8 @@ class ClientesController < ApplicationController
 
   # POST /clientes
   def create
-    @cliente = Cliente.new(cliente_params)
+  @cliente = Cliente.new(cliente_params)
+ puts params[:nome]
     km = params[:quilometragem]
     if @cliente.save
       if km != nil
@@ -103,11 +99,12 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :sobrenome,:oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
+      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_f_attributes => [:nome, :sobrenome, :cnpj, :rg, :sexo, :oficio])
     end
 
-    def cliente_params_menu
-      params.require(:cliente).permit(:nome, :sobrenome, :oficio, :rua, :bairro, :cidade, :uf, :cep, :telefone, :celular, :comercial, :email, :observacoes, :endereco_attributes => [:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento])
+    def cliente_params2
+      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_f_attributes => [:razao_social, :nome_fantasia, :cnpj, :representante])
     end
+    
 
 end

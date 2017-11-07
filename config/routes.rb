@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :fornecedors
   resources :pecas
   resources :veiculos
+
+  get "/cliente/newj" => "clientes#newj", as: :test_clientejj
+
   get "/estoque" => "estoque#index"
   post "/estoque/edit" => "estoque#salva"
   get "peca/teste" => "pecas#teste"

@@ -13,22 +13,41 @@
   <% end %>
  <div class="leftcontact">
 
+<%= form.fields_for(:cliente_f) do |fe|%>
+
   <div class="form-group">
-    <%= form.label :nome %><span>*</span>
+    <%= fe.label :nome %><span>*</span>
     <span class="icon-case"><i class="fa fa-user"></i></span>
-    <%= form.text_field :nome, id: :cliente_nome %>
+    <%= fe.text_field :nome, id: :cliente_f_nome %>
   </div>
 
   <div class="form-group">
-    <%= form.label :sobrenome %>
-    <%= form.text_field :sobrenome, id: :cliente_sobrenome %>
+    <%= fe.label :sobrenome %>
+    <%= fe.text_field :sobrenome, id: :cliente_sobrenome %>
   </div>
 
   <div class="form-group">
-    <%= form.label :oficio %>
-    <%= form.text_field :oficio, id: :cliente_oficio %>
+    <%= fe.label :cpf %>
+    <%= fe.text_field :cpf, id: :cliente_cpf %>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :rg %>
+    <%= fe.text_field :rg, id: :cliente_rg %>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :M %>
+    <%= fe.radio_button :sexo, 'M'%>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :oficio %>
+    <%= fe.text_field :oficio, id: :cliente_oficio %>
   </div>
  
+  <%end%>
+
   <div class="form-group">
     <%= form.label :telefone %>
     <%= form.text_field :telefone, id: :cliente_telefone %>
@@ -55,44 +74,40 @@
   </div>
 
 
-<%= form.fields_for(:endereco) do |fe|%>
-
   <div class="form-group">
-    <%= fe.label :rua %>
-    <%= fe.text_field :rua, id: :endereco_rua %>
+    <%= form.label :rua %>
+    <%= form.text_field :rua, id: :endereco_rua %>
   </div>
   
   <div class="form-group">
-    <%= fe.label :numero %>
-    <%= fe.text_field :numero, id: :endereco_numero %>
+    <%= form.label :numero %>
+    <%= form.text_field :numero, id: :endereco_numero %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :bairro %>
-    <%= fe.text_field :bairro, id: :endereco_bairro %>
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :endereco_bairro %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :cidade %>
-    <%= fe.text_field :cidade, id: :endereco_cidade %>
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade, id: :endereco_cidade %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :uf %>
-    <%= fe.text_field :uf, id: :endereco_uf %>
+    <%= form.label :uf %>
+    <%= form.text_field :uf, id: :endereco_uf %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :cep %>
-    <%= fe.text_field :cep, id: :endereco_cep %>
+    <%= form.label :cep %>
+    <%= form.text_field :cep, id: :endereco_cep %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :complemento %>
-    <%= fe.text_field :complemento, id: :endereco_complemento %>
+    <%= form.label :complemento %>
+    <%= form.text_field :complemento, id: :endereco_complemento %>
   </div>
-
-<%end%>
 
 
   </div>
