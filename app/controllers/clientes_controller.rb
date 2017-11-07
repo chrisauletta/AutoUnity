@@ -1,5 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, except: [:new,:newj, :create,:show, :edit, :update, :destroy]
+
   # GET /clientes
   def index
 
@@ -48,15 +50,6 @@ class ClientesController < ApplicationController
     end
   end
 
-   def create_menu
-    @cliente = Cliente.new(cliente_params_menu)
-    orc_check = params[:orc_check]
-    if @cliente.save
-      redirect_to orcamentos_path, notice: 'Cliente criado com sucessso'
-    else
-      render :new
-    end
-  end
 
   # PATCH/PUT /clientes/1
   def update

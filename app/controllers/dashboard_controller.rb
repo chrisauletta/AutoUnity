@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :authorize, except: [:busca_orcamento]
 
 	def index
 	

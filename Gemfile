@@ -35,4 +35,4 @@ gem "chartkick"
 
 gem 'rails-i18n', '~> 5.0.0'
 
-gem 'devise'
+gem 'bcrypt'

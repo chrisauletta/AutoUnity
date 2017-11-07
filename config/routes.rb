@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  get    'sign_in'   => 'sessions#new'
+  post   'sign_in'   => 'sessions#create'
+  delete 'sign_out'  => 'sessions#destroy'
+  resources :users
   resources :servicos
   resources :orcamentos
   resources :clientes
   resources :fornecedors
   resources :pecas
   resources :veiculos
+  root 'sessions#new'
+
 
   get "/cliente/newj" => "clientes#newj", as: :test_clientejj
 
@@ -45,7 +51,6 @@ Rails.application.routes.draw do
 
   get "/busca_veiculo" => "veiculos#busca_veiculo", as: :pega_veiculo
 
-  root "dashboard#index"
 
   #Dashboard
   get "/dashboard" => "dashboard#index"
