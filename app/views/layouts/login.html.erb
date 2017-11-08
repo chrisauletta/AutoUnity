@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+     <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="layout" content="main"/>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     
+</head>
+    <body>
+        
+        <div id="body-container">
+                    <div id="body-content">
+                        
+                        
+           <%= yield %>
+
+
+                <div class="signin-row row">
+                    <div class="span4"></div>
+                    <div class="span8">
+                        <div class="well well-small well-shadow">
+                            <legend class="lead">Continental Centro Automotivo</legend>
+                            Central de Controle.
+                        </div>
+                    </div>
+                    <div class="span8"></div>
+                </div>
+            <!--<div class="span4">
+
+                </div>-->
+            </div>
+    
+
+            </div>
+        </div>
+
+        <div id="spinner" class="spinner" style="display:none;">
+            Loading&hellip;
+        </div>
+
+        <footer class="application-footer">
+            <div class="container">
+                <p>Auto Unity</p>
+                <div class="disclaimer">
+                    <p>All right reserved.</p>
+                    <p>Copyright © 2017</p>
+                </div>
+            </div>
+        </footer>
+
+	</body>
+</html>

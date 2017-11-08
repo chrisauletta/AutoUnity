@@ -1,7 +1,7 @@
 <% orcamentos.each do |orcamento| %>
       <tr>
         <td class="span2"><%= orcamento.status %></td>
-        <td class="span3"><%= orcamento.cliente.nome %></td>
+        <td class="span3"><%= orcamento.cliente.cliente_f.nome %></td>
         <td class="span2"><%= orcamento.veiculo.marca %></td>
         <td class="span2"><%= orcamento.veiculo.placa %></td>
         <td class="span2"><%= orcamento.quilometragem %></td>

@@ -7,7 +7,7 @@
 <div class="span14">
 <div class="form-inline margin_form">
 Nome:
-<span class="input-large uneditable-input"><%=@orcamento.cliente.nome%></span>
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_f.nome%></span>
 Telefone:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.telefone%></span>
 Celular:
@@ -31,8 +31,9 @@ Quilometragem:
 
 </div>
 </div>
+ <% if logged_in? %>
+<%end%>
 
-  
 <%= render 'orcamentos/modal/modal_pecaOrc', pecas_orc: @pecas_orc %>
 <%= render 'orcamentos/modal/modal_servicoOrc', pecas_orc: @pecas_orc %>
 
@@ -65,7 +66,22 @@ Quilometragem:
             </tr>
           </thead>
           <%sumP = 0%>
+
           <tbody>
+          <%if @current_user.cargo == "mecanico"%>
+              <% @orcamento.peca_orc.each do |peca_orc| %>
+
+                <tr>
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
+                <td class="span3"><%= peca_orc.peca.nome %></td>
+                <td class="span3"><%= peca_orc.quantidade %></td>
+                <td>
+                <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
+                </td>
+                <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+              </tr>
+              <%end%>
+              <%else%>
               <% @orcamento.peca_orc.each do |peca_orc| %>
 
                 <tr>
@@ -78,9 +94,8 @@ Quilometragem:
                 <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
                 </td>
   <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
-
               </tr>
-
+              <%end%>
               <%end%>
           </tbody>
         </table>

@@ -1,0 +1,17 @@
+<h2>Entrar</h2>
+<%= form_for :session, url: sign_in_path do |f| %>
+    <div class="field">
+      <%= f.label :login %><br />
+      <%= f.text_field :login, autofocus: true %>
+    </div>
+   
+    <div class="field">
+      <%= f.label :Senha %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Entrar" %>
+    </div>
+    <br>
+  <p><%= link_to "Novo Cadastro", new_user_path, class:"btn btn-primary margin-form" %></p>
+  <% end %>
