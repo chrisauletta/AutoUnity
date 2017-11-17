@@ -1,7 +1,11 @@
 <% orcamentos.each do |orcamento| %>
       <tr>
         <td class="span2"><%= orcamento.status %></td>
-        <td class="span3"><%= orcamento.cliente.nome %></td>
+        <% if orcamento.cliente.cliente_f != nil %>
+        <td class="span3"><%= orcamento.cliente.cliente_f.nome %></td>
+        <%else%>
+        <td class="span3"><%= orcamento.cliente.cliente_j.razao_social %></td>
+        <%end%>
         <td class="span2"><%= orcamento.veiculo.marca %></td>
         <td class="span2"><%= orcamento.veiculo.placa %></td>
         <td class="span2"><%= orcamento.quilometragem %></td>
@@ -14,12 +18,9 @@
         </button>
         <ul class="dropdown-menu">
 
-        <%= link_to 'Relacionar Peças', peca_orc_path(orcamento) %>
-        <%= link_to 'Exibir', orcamento %>
-        <%= link_to 'Editar', edit_orcamento_path(orcamento) %>
-        <%= link_to 'Deletar', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf'),:target => '_blank' %>
-        <%= link_to 'Trocar Status' status_orcamento_js_path(orcamento), :remote => true %> 
+        <%= link_to 'Relacionar Peças', orcamento %>
+        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf'), :target => '_blank' %>
+        <%= link_to 'Trocar Status', status_orcamento_js_path(orcamento), :remote => true %> 
 
         </ul>
       </div>

@@ -1,5 +1,10 @@
 <div class="span6">
 <h3>Editar Cliente</h3>
 
-<%= render 'formC', cliente: @cliente %>
+	<% if @cliente.cliente_f != nil %>
+	    <%= render 'formCVC', cliente: @cliente %>
+	<%else%>
+		<%= render 'formJ', cliente: @cliente %>
+	<%end%>
+
 </div>

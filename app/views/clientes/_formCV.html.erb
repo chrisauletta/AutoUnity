@@ -158,6 +158,10 @@
     <%= select(:orcamento, :status,[ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
   </div>
 
+ <div class="field">
+    <%= label_tag :ocorrencia %>
+    <%= text_area_tag :ocorrencia, nil, rows: 10, cols: 25 %>
+  </div>
 
   <div class="actions">
     <%= form.submit "Cadastrar" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107112459) do
+ActiveRecord::Schema.define(version: 20171117025739) do
 
   create_table "cliente_fs", force: :cascade do |t|
     t.string "nome"
@@ -77,7 +77,12 @@ ActiveRecord::Schema.define(version: 20171107112459) do
     t.integer "veiculo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "ocorrencia"
+    t.text "diagnostico"
+    t.text "execucao"
+    t.integer "user_id"
     t.index ["cliente_id"], name: "index_orcamentos_on_cliente_id"
+    t.index ["user_id"], name: "index_orcamentos_on_user_id"
     t.index ["veiculo_id"], name: "index_orcamentos_on_veiculo_id"
   end
 

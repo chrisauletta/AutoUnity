@@ -3,20 +3,13 @@
       <nav>
         <ul>
           <% if logged_in? %>
-            <li>
-              <ul>
-                <li><%= @current_user.nome %></li>
-                 <li><%= @current_user.cargo %></li>
-                 <%@x = @current_user%>
+                <li>Usuario: <%= @current_user.nome %></li>
+                 <li>Cargo: <%= @current_user.cargo %></li>
                 <li>
-                  <%= link_to "Log out", sign_out_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
+                  <%= link_to "Sair", sign_out_path, method: "delete" %>
           <% else %>
             <li><%= link_to "Log in", root_path %></li>
           <% end %>
-        </ul>
       </nav>
     </div>
   </header>

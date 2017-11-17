@@ -2,7 +2,7 @@
 
 <%= link_to 'Novo Cliente Fisico', new_cliente_path, class: "btn btn-primary" %>
 
-<%= link_to 'Novo Cliente Juridico', test_clientejj_path, class: "btn btn-primary" %>
+<%= link_to 'Novo Cliente Juridico', new_clientej_path, class: "btn btn-primary" %>
 
 <br>
 <p id="notice"><%= notice %></p>
@@ -19,7 +19,8 @@
     <div class="row">
     <div class="span15">
 <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
+          <div class="form-inline">
+          <%= select(:orcamento, :selec, [ 'Nome','Razao Social'], {include_blank: true}) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>

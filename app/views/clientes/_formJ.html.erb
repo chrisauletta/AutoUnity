@@ -1,0 +1,111 @@
+
+	<%= form_with(model: cliente, local: true) do |form| %>
+
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <div class="alert alert-error"><%= message %></div>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+<%= form.fields_for(:cliente_j) do |fe|%>
+
+  <div class="form-group">
+    <%= fe.label :razao_social %><span>*</span>
+    <span class="icon-case"><i class="fa fa-user"></i></span>
+    <%= fe.text_field :razao_social, id: :cliente_razao_social %>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :nome_fantasia %>
+    <%= fe.text_field :nome_fantasia, id: :cliente_nome_fantasia %>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :cnpj %>
+    <%= fe.text_field :cnpj, id: :cliente_cnpj%>
+  </div>
+
+  <div class="form-group">
+    <%= fe.label :representante %>
+    <%= fe.text_field :representante, id: :cliente_representante %>
+  </div>
+
+ 
+  <%end%>
+
+  <div class="form-group">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone, id: :cliente_telefone %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :celular %>
+    <%= form.text_field :celular, id: :cliente_celular %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comercial %>
+    <%= form.text_field :comercial, id: :cliente_comercial %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :cliente_email %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observacoes %>
+    <%= form.text_field :observacoes, id: :cliente_observacoes %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :rua %>
+    <%= form.text_field :rua, id: :endereco_rua %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.text_field :numero, id: :endereco_numero %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :endereco_bairro %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade, id: :endereco_cidade %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :uf %>
+    <%= form.text_field :uf, id: :endereco_uf %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cep %>
+    <%= form.text_field :cep, id: :endereco_cep %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :complemento %>
+    <%= form.text_field :complemento, id: :endereco_complemento %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit "Cadastrar" %>
+  </div>
+</div>
+
+
+<% end %>

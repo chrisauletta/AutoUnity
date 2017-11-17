@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
 
-  get "/cliente/newj" => "clientes#newj", as: :test_clientejj
+  get "/cliente/newj" => "clientes#newj", as: :new_clientej
+
+  post "/orc_edit_user/:id" => "orcamentos#seta_user", as: :seta_user
 
   get "/estoque" => "estoque#index"
   post "/estoque/edit" => "estoque#salva"

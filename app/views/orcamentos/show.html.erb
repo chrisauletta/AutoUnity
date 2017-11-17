@@ -1,13 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<% if logged_in? %>
+<%end%>
+
 <!-- Infos de orcamento cliente e veiculo -->
 <div class="span16">
+<div class="seta_user">
+  
+  <%if @orcamento.user_id == nil%>
+    <%if @current_user.cargo == "mecanico"%>
+    <h3> Voce é o responsavel por este orçamento?</h3>
+    <%= link_to 'Click Aqui', seta_user_path(@orcamento), method: :post %>
+    <%end%> 
+    <%else%>
+    <div class="form-inline margin_form_g">
+    Mecanico Responsavel:
+    <span class="input-large uneditable-input"><%=@orcamento.user.nome%></span> 
+    </div>
+  <%end%>
+</div>
 
 <div class="row">
 <div class="span14">
 <div class="form-inline margin_form">
+<% if @orcamento.cliente.cliente_f != nil %>
 Nome:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_f.nome%></span>
+<%else%>
+Razao Social:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_j.razao_social%></span>
+<%end%>
 Telefone:
 <span class="input-large uneditable-input"><%=@orcamento.cliente.telefone%></span>
 Celular:
@@ -31,8 +53,6 @@ Quilometragem:
 
 </div>
 </div>
- <% if logged_in? %>
-<%end%>
 
 <%= render 'orcamentos/modal/modal_pecaOrc', pecas_orc: @pecas_orc %>
 <%= render 'orcamentos/modal/modal_servicoOrc', pecas_orc: @pecas_orc %>
@@ -70,7 +90,6 @@ Quilometragem:
           <tbody>
           <%if @current_user.cargo == "mecanico"%>
               <% @orcamento.peca_orc.each do |peca_orc| %>
-
                 <tr>
                 <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
                 <td class="span3"><%= peca_orc.peca.nome %></td>
@@ -78,12 +97,12 @@ Quilometragem:
                 <td>
                 <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
                 </td>
-                <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
               </tr>
               <%end%>
+
               <%else%>
               <% @orcamento.peca_orc.each do |peca_orc| %>
-
                 <tr>
                 <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
                 <td class="span3"><%= peca_orc.peca.nome %></td>
@@ -96,7 +115,9 @@ Quilometragem:
   <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
               </tr>
               <%end%>
+
               <%end%>
+
           </tbody>
         </table>
         </div>
@@ -157,26 +178,20 @@ Quilometragem:
 
 
 <div class="row">
-<div class="span5">
+<div class="span4">
 <p>
-  <strong>Descricao:</strong>
-  <%= @orcamento.descricao %>
+  <strong>Ocorrencia:</strong>
+  <%= @orcamento.ocorrencia %>
 </p>
 </div>
 
-<div class="span6">
-    <%=link_to status_orcamento_js_path(@orcamento), :remote => true, class:"btn btn-large" do %>
-    <i class="icon-random icon-large""></i>
-    </br>
-    Troca Status
-    <%end%>
-
-    <%= link_to report_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
-<i class="icon-print icon-large"></i>
-    </br>
-    Imprimir
-    <%end%>
-
+ <div class="row span6">
+  <div class="field">
+    <%= label_tag :diagnostico %>
+    <%= text_area_tag :diagnostico, nil, cols: 40, rows: 5, class:"estilotextarea" %>
+     <%= label_tag "Serviço Executado" %>
+    <%= text_area_tag :diagnostico, nil, cols: 40, rows: 5, class:"estilotextarea" %>
+  </div>  
 </div>
 
   <div class="span5">
@@ -189,9 +204,27 @@ Quilometragem:
 
 </div>
 
+<div class="row">
+  <div class="span4">
+    <%=link_to status_orcamento_js_path(@orcamento), :remote => true, class:"btn btn-large" do %>
+    <i class="icon-random icon-large""></i>
+    Troca Status
+    <%end%>
+
+    <%= link_to report_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
+    <i class="icon-print icon-large"></i>
+    Imprimir
+    <%end%>
+    <br>
+     <%= link_to report_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
+    <i class="icon-save icon-large"></i>
+    Salvar
+    <%end%>
+</div>
 
 
 
-<%= link_to 'Editar', edit_orcamento_path(@orcamento) %> |
-<%= link_to 'Voltar', orcamentos_path %>
+</div>
+
+
 </div>

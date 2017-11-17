@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
+<% if @cliente.cliente_f != nil %>
+
 <p>
   <strong>Nome:</strong>
-  <%= @cliente.nome %>
+  <%= @cliente.nome %> <%=@cliente.cliente_f.sobrenome%>
 </p>
 
 <p>
-  <strong>Oficio:</strong>
-  <%= @cliente.oficio %>
+  <strong>CPF:</strong>
+  <%= @cliente.cliente_f.cpf %>
 </p>
+
+<p>
+  <strong>RG:</strong>
+  <%= @cliente.cliente_f.rg %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @cliente.cliente_f.sexo %>
+</p>
+
+
+<p>
+  <strong>Oficio:</strong>
+  <%= @cliente.cliente_f.oficio %>
+</p>
+
+
+  <%else%>
+    <%= render 'formJ', cliente: @cliente %>
+  <%end%>
+
 
 <p>
   <strong>Rua:</strong>

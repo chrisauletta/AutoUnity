@@ -26,13 +26,21 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1/edit
   def edit
-    @endereco = @cliente.endereco
+
   end
 
   # POST /clientes
   def create
-  @cliente = Cliente.new(cliente_params)
- puts params[:nome]
+    c = nil
+    n = 0
+    if params[:cliente][:cliente_j_attributes] != nil
+      n = 1
+      c = cliente_params2
+    else 
+      n = 2
+      c = cliente_params
+    end
+    @cliente = Cliente.new(c)
     km = params[:quilometragem]
     if @cliente.save
       if km != nil
@@ -42,11 +50,16 @@ class ClientesController < ApplicationController
       orc.valor_total = 0
       orc.quilometragem = km
       orc.status = params[:orcamento] [:status]
+      orc.ocorrencia = params[:ocorrencia]
       orc.save
       end
     redirect_to orcamentos_path, notice: "Cadastro com sucesso"
     else
-      render :new
+      if n == 1
+        render :newj
+      else
+        render :new
+      end
     end
   end
 
@@ -68,8 +81,16 @@ class ClientesController < ApplicationController
   end
 
   def busca_cliente
-   @nome = params[:nome_c]
-   @cliente_search = Cliente.where "nome like ?", "%#{@nome}%"
+   selec =  params[:orcamento] [:selec]
+   nome = params[:nome_c]
+   if selec == "Nome"
+    @cliente_search = Cliente.where "id == (select cliente_id from cliente_fs where " "nome like " "'%#{nome}%')"
+   elsif selec == "Razao Social"
+    @cliente_search = Cliente.where "id == (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
+   else
+    @cliente_search = Cliente.all
+   end
+   #@cliente_search = Cliente.where "nome like ?", "%#{@nome}%"
     respond_to do |format|
       format.html 
       format.js
@@ -92,11 +113,11 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def cliente_params
-      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_f_attributes => [:nome, :sobrenome, :cnpj, :rg, :sexo, :oficio])
+      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_f_attributes => [:nome, :sobrenome, :cpf, :rg, :sexo, :oficio, :id])
     end
 
     def cliente_params2
-      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_f_attributes => [:razao_social, :nome_fantasia, :cnpj, :representante])
+      params.require(:cliente).permit(:telefone, :celular, :comercial, :email, :observacoes,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento, :veiculo_attributes => [:placa, :marca, :modelo, :ano, :cor], :cliente_j_attributes => [:razao_social, :nome_fantasia, :cnpj, :representante, :id])
     end
     
 

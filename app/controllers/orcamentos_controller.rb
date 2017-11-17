@@ -59,17 +59,25 @@ class OrcamentosController < ApplicationController
   end
 
   def busca_orcamento
-    selec =  params[:orcamento] [:selec]
+    @selec =  params[:orcamento] [:selec]
     nome =  params[:nome]
+    if @selec == "Nome"
+     str = "status = " "'#{status}'" " and cliente_id in (select cliente_id from cliente_fs where " "nome like " "'%#{nome}%')"
+     str2 = "cliente_id in (select cliente_id from cliente_fs where " "nome like " "'%#{nome}%')"
+    elsif @selec == "Razao Social"
+     str = "status = " "'#{status}'" " and cliente_id in (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
+     str2 = "cliente_id in (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
+    end
     status = params[:orcamento] [:status]
-    str = "status = " "'#{status}'" " and cliente_id in (select id from clientes where " "nome like " "'%#{nome}%')"
-    if status != ""
+ 
+    if status != "" && @selec != "" #Se os dois for preenchido
     @orc = Orcamento.where str
-    puts str
-    elsif selec == ""
+    elsif @selec == "" && status != "" #Se só status for preenchido
     @orc = Orcamento.where "status = " "'#{status}'"
+    elsif @selec != "" && status == "" #Se só nome for preenchido
+    @orc = Orcamento.where str2
     else
-    @orc = Orcamento.where "cliente_id in (select id from clientes where " "nome like " "'%#{nome}%')"
+    @orc = Orcamento.all
   end
   respond_to do |format|
     format.html 
@@ -105,6 +113,13 @@ end
     end
   end
 
+  def seta_user
+    set_orcamento
+    logged_in?
+    @orcamento.user_id = @current_user.id
+    @orcamento.save
+    redirect_back fallback_location: @orcamento
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

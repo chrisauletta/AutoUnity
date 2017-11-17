@@ -1,0 +1,26 @@
+<% orcamentos.each do |orcamento| %>
+      <tr>
+        <td class="span2"><%= orcamento.status %></td>
+        <td class="span3"><%= orcamento.cliente.cliente_j.razao_social %></td>
+        <td class="span2"><%= orcamento.veiculo.marca %></td>
+        <td class="span2"><%= orcamento.veiculo.placa %></td>
+        <td class="span2"><%= orcamento.quilometragem %></td>
+        <td class="span2"><%= orcamento.valor_total %></td>
+        <td class="span4">
+        <div class="btn-group">
+        <button class="btn ">Funçoes</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+        <%= link_to 'Relacionar Peças', orcamento %>
+        <%= link_to 'Imprimir', report_orc_path(orcamento, :format => 'pdf'), :target => '_blank' %>
+        <%= link_to 'Trocar Status', status_orcamento_js_path(orcamento), :remote => true %> 
+
+        </ul>
+      </div>
+        </td>
+
+      </tr>
+    <% end %>
