@@ -15,8 +15,7 @@
 <%= form.fields_for(:cliente_f) do |fe|%>
 
   <div class="form-group">
-    <%= fe.label :nome %><span>*</span>
-    <span class="icon-case"><i class="fa fa-user"></i></span>
+    <%= fe.label :nome %>
     <%= fe.text_field :nome, id: :cliente_f_nome %>
   </div>
 
@@ -35,9 +34,13 @@
     <%= fe.text_field :rg, id: :cliente_rg %>
   </div>
 
-  <div class="form-group">
+    <div class="form-group form-inline">
     <%= fe.label :M %>
     <%= fe.radio_button :sexo, 'M'%>
+    <p>    </p>
+    <%= fe.label :F %>
+    <%= fe.radio_button :sexo, 'F'%>
+
   </div>
 
   <div class="form-group">

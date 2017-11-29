@@ -59,6 +59,18 @@ class OrcamentosController < ApplicationController
     redirect_to orcamentos_url, notice: 'Orcamento was successfully destroyed.'
   end
 
+  def busca_orcamento_status
+
+  status = params[:orcamento] [:status]  
+
+      @orc = Orcamento.where "status = " "'#{status}'"
+
+    respond_to do |format|
+    format.html 
+    format.js 
+  end
+  end
+
   def busca_orcamento
     @selec =  params[:orcamento] [:selec]
     nome =  params[:nome]
@@ -69,8 +81,8 @@ class OrcamentosController < ApplicationController
      str = "status = " "'#{status}'" " and cliente_id in (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
      str2 = "cliente_id in (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
     end
-    status = params[:orcamento] [:status]
- 
+    status = params[:orcamento] [:status]  
+
     if status != "" && @selec != "" #Se os dois for preenchido
     @orc = Orcamento.where str
     elsif @selec == "" && status != "" #Se só status for preenchido

@@ -16,8 +16,7 @@
 <%= form.fields_for(:cliente_f) do |fe|%>
 
   <div class="form-group">
-    <%= fe.label :nome %><span>*</span>
-    <span class="icon-case"><i class="fa fa-user"></i></span>
+    <%= fe.label "Nome" %>
     <%= fe.text_field :nome, id: :cliente_f_nome %>
   </div>
 
@@ -27,22 +26,26 @@
   </div>
 
   <div class="form-group">
-    <%= fe.label :cpf %>
+    <label>CPF</label>
     <%= fe.text_field :cpf, id: :cliente_cpf %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :rg %>
+    <label>RG</label>
     <%= fe.text_field :rg, id: :cliente_rg %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group form-inline">
     <%= fe.label :M %>
     <%= fe.radio_button :sexo, 'M'%>
+    <p>    </p>
+    <%= fe.label :F %>
+    <%= fe.radio_button :sexo, 'F'%>
+
   </div>
 
   <div class="form-group">
-    <%= fe.label :oficio %>
+    <%= fe.label "Ofício" %>
     <%= fe.text_field :oficio, id: :cliente_oficio %>
   </div>
  
@@ -64,7 +67,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :email %>
+    <%= form.label "E-mail" %>
     <%= form.text_field :email, id: :cliente_email %>
   </div>
 
@@ -73,6 +76,10 @@
     <%= form.text_field :observacoes, id: :cliente_observacoes %>
   </div>
 
+  <div class="form-group">
+    <label>CEP</label>
+    <%= form.text_field :cep, id: :endereco_cep %>
+  </div>
 
   <div class="form-group">
     <%= form.label :rua %>
@@ -95,14 +102,10 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :uf %>
+    <label>UF</label>
     <%= form.text_field :uf, id: :endereco_uf %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :cep %>
-    <%= form.text_field :cep, id: :endereco_cep %>
-  </div>
 
   <div class="form-group">
     <%= form.label :complemento %>
@@ -122,7 +125,7 @@
 
   <div class="field">
     <%= ff.label :marca %>
-<%= select(:veiculo, :marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY''Chrysler','CitroÃ«n','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','Dafra','Honda','Kawasaki']) %>  
+<%= ff.select(:marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY''Chrysler','CitroÃ«n','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  
 </div>
 
   <div class="field">
@@ -159,7 +162,7 @@
   </div>
 
  <div class="field">
-    <%= label_tag :ocorrencia %>
+    <%= label_tag :ocorrência %>
     <%= text_area_tag :ocorrencia, nil, rows: 10, cols: 25 %>
   </div>
 

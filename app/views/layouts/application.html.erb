@@ -17,7 +17,8 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-     
+     	<link rel="shortcut icon" href="logo.png" type="image/x-icon" />    
+
   </head>
      <body>
 	<div id="logo">
@@ -32,10 +33,11 @@
                     <div >
                         <ul class="nav">
                             <li class="dropdown">
-
+					<%if @current_user.cargo != "mecanico"%>
                             <%=link_to financeiro_path, class:"dropdown-toggle" do %>
 		       				Financeiro
-		   					<%end%>
+		       				<%end%>
+		   			<%end%>
 		   					</li>
                             
                         </ul>

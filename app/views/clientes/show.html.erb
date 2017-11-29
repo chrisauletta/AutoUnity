@@ -4,7 +4,7 @@
 
 <p>
   <strong>Nome:</strong>
-  <%= @cliente.nome %> <%=@cliente.cliente_f.sobrenome%>
+  <%= @cliente.cliente_f.nome %> <%=@cliente.cliente_f.sobrenome%>
 </p>
 
 <p>
@@ -30,7 +30,26 @@
 
 
   <%else%>
-    <%= render 'formJ', cliente: @cliente %>
+<p>
+  <strong>Razão Social:</strong>
+  <%= @cliente.cliente_j.razao_social %>
+</p>
+
+<p>
+  <strong>Nome Fantasia:</strong>
+  <%= @cliente.cliente_j.nome_fantasia %>
+</p>
+
+<p>
+  <strong>Representante:</strong>
+  <%= @cliente.cliente_j.representante %>
+</p>
+
+<p>
+  <strong>CNPJ:</strong>
+  <%= @cliente.cliente_j.cnpj %>
+</p>
+
   <%end%>
 
 

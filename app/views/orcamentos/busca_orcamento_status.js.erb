@@ -1,0 +1,7 @@
+<%if @selec == "Nome"%>
+	$('table#table_dash tbody').html("<%= j render 'orcamentos/table/table_index', orcamentos: @orc %>");
+<% elsif @selec == "Razao Social"%>
+	$('table#table_dash tbody').html("<%= j render 'orcamentos/table/table_index2', orcamentos: @orc %>");
+<%else%>
+$('table#table_dash tbody').html("<%= j render 'orcamentos/table/table_index3', orcamentos: @orc %>");
+<%end%>

@@ -54,7 +54,7 @@ class ClientesController < ApplicationController
       orc.user_id = 0
       orc.save
       end
-    redirect_to orcamentos_path, notice: "Cadastro com sucesso"
+    redirect_to orc, notice: "Cadastro com sucesso"
     else
       if n == 1
         render :newj
@@ -87,7 +87,7 @@ class ClientesController < ApplicationController
    if @selec == "Nome"
     @cliente_search = Cliente.joins "INNER JOIN cliente_fs on cliente_fs.cliente_id = clientes.id where cliente_fs.nome like '%#{nome}%'"
    elsif @selec == "Razao Social"
-    @cliente_search = Cliente.where "id == (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
+    @cliente_search = Cliente.joins "INNER JOIN cliente_js on cliente_js.cliente_id = clientes.id where cliente_js.razao_social like '%#{nome}%'"
    end
    #@cliente_search = Cliente.where "nome like ?", "%#{@nome}%"
     respond_to do |format|

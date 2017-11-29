@@ -68,6 +68,33 @@
         background: #ccc;
       }
 
+      .row {
+          display: inline-block;
+
+  margin-left: -20px;
+  *zoom: 1;
+}
+
+      }
+.span6 {
+  width: 352px;
+}
+.span5 {
+  width: 290px;
+}
+.span4 {
+  width: 228px;
+}
+.span3 {
+  width: 166px;
+}
+.span2 {
+  width: 104px;
+}
+.span1 {
+  width: 42px;
+}
+
     </style>
   </head>
 
@@ -83,9 +110,17 @@
 </div> 
 
      <hr>
+     <% if logged_in? %>
+<%end%>
 
 <div class="block">
-<div class="inner">Nome: <%=@orcamento.cliente.nome%></div>
+<% if @orcamento.cliente.cliente_f != nil %>
+Nome:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_f.nome%></span>
+<%else%>
+Razao Social:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_j.razao_social%></span>
+<%end%>
 <div class="inner inner2"> Telefone: <%=@orcamento.cliente.telefone%></div>
 <div class="inner"> Celular: <%=@orcamento.cliente.celular%></div>
 </br>
@@ -104,18 +139,21 @@
          <thead>
             <tr>
               <th>Nome</th>
-              <th>Quantidade</th>
-              <th>Preco</th>
+              <th>Preco Uni.</th>
+              <th>Qtd.</th>
+              <th>Preco Total </th>
             </tr>
           </thead>
+          <%sumP = 0.0%>
 
           <tbody>
          <% @orcamento.peca_orc.each do |peca_orc| %>
-
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
                 <tr>
                 <td class="span3"><%= peca_orc.peca.nome %></td>
-                <td class="span3"><%= peca_orc.quantidade %></td>
-                <td class="span2"><%= peca_orc.preco_o %></td>
+                <td class="span2">R$ <%= peca_orc.preco_o %></td>
+                <td class="span1"><%= peca_orc.quantidade %></td>
+                <td class="span2"><%= peca_orc.preco_o * peca_orc.quantidade%></td>
                 </tr>
           <%end%>
           </tbody>
@@ -131,13 +169,14 @@
               <th>Preco</th>
             </tr>
           </thead>
+          <%sumS = 0.0%>
 
           <tbody>
         <% @orcamento.servico_orc.each do |servico_orc| %>
-
+                <%sumS += servico_orc.preco_s%>
                 <tr>
                 <td class="span3"><%= servico_orc.servico.nome %></td>
-                <td class="span2"><%= servico_orc.servico.preco %></td>
+                <td class="span2">R$ <%= servico_orc.preco_s %></td>
               </tr>
         <%end%>
           </tbody>
@@ -147,14 +186,35 @@
         <hr>
         </br>
 
-    <div class="header">
-     <h4>Observação:</h4>
-    </div>
+    <div class="row">
+<div class="span4">
+    <p>
+   <%= label_tag "Ocorrência:" %>
+      <%= @orcamento.ocorrencia %>
+    </p>
+</div>
 
-  <div class="header-right2">
-  
-    <h3>Valor Total: <%=@orcamento.valor_total%></h3>
+ <div>
+    <%= label_tag "Diagnostico:" %>
+    <%= @orcamento.diagnostico%> 
+</div>
+
+ <div>
+    <%= label_tag "Serviço Executado:" %>
+    <%=  @orcamento.execucao%>
+</div>
+
+  <div class="span5">
+   <div class="header-right2">
+      <%if @current_user.cargo != "mecanico"%>
+    <h4>Valor Peças:R$ <%= sumP%></h4>
+    <h4>Valor Serviços:R$ <%= sumS%></h4>
+    <h3>Valor Total:R$ <%=@orcamento.valor_total%></h3>
+    <%end%>
   </div> 
+</div>
+
+</div>
 
   </body>
 

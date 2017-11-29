@@ -17,11 +17,12 @@
 //= require Chart.bundle
 //= require chartkick
 //= require_tree .
+//= require_tree.
 
 $(document).ready(function(){
    var tam = $(window).width();
  
-   if (tam <=480 ){
+   if (tam <= 600 ){
 $("#logo").html("");
    } 
 });

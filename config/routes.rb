@@ -54,6 +54,9 @@ Rails.application.routes.draw do
 
   get "/bucas_orcamento" => "orcamentos#busca_orcamento", as: :pega_orc
 
+  get "/bucas_orcamento_status" => "orcamentos#busca_orcamento_status", as: :pega_orc_status
+
+
   get "/busca_veiculo" => "veiculos#busca_veiculo", as: :pega_veiculo
 
 

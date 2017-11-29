@@ -18,19 +18,23 @@
 <%= form.fields_for(:cliente_j) do |fe|%>
 
   <div class="form-group">
-    <%= fe.label :razao_social %><span>*</span>
-    <span class="icon-case"><i class="fa fa-user"></i></span>
+    <label>Razão Social</label>
     <%= fe.text_field :razao_social, id: :cliente_razao_social %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :nome_fantasia %>
+    <label>Nome Fantasia</label>
     <%= fe.text_field :nome_fantasia, id: :cliente_nome_fantasia %>
   </div>
 
   <div class="form-group">
-    <%= fe.label :cnpj %>
+    <label>CNPJ</label>
     <%= fe.text_field :cnpj, id: :cliente_cnpj%>
+  </div>
+
+   <div class="form-group">
+    <label>Telefone Comercial</label>
+    <%= form.text_field :comercial, id: :cliente_comercial %>
   </div>
 
   <div class="form-group">
@@ -41,20 +45,17 @@
  
   <%end%>
 
+
   <div class="form-group">
-    <%= form.label :telefone %>
+    <label>Telefone Representante</label>
     <%= form.text_field :telefone, id: :cliente_telefone %>
   </div>
 
   <div class="form-group">
-    <%= form.label :celular %>
+    <label>Celular Representante</label>
     <%= form.text_field :celular, id: :cliente_celular %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :comercial %>
-    <%= form.text_field :comercial, id: :cliente_comercial %>
-  </div>
+  
 
   <div class="form-group">
     <%= form.label :email %>
@@ -66,6 +67,10 @@
     <%= form.text_field :observacoes, id: :cliente_observacoes %>
   </div>
 
+  <div class="form-group">
+    <label>CEP</label>
+    <%= form.text_field :cep, id: :endereco_cep %>
+  </div>
 
   <div class="form-group">
     <%= form.label :rua %>
@@ -88,13 +93,8 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :uf %>
+    <label>UF</label>
     <%= form.text_field :uf, id: :endereco_uf %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :cep %>
-    <%= form.text_field :cep, id: :endereco_cep %>
   </div>
 
   <div class="form-group">
@@ -114,9 +114,9 @@
   </div>
 
   <div class="field">
-    <%= ff.label :marca %>
-    <%= ff.text_field :marca, id: :veiculo_marca %>
-  </div>
+      <%= ff.label :marca %>
+  <%= ff.select(:marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY''Chrysler','CitroÃ«n','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  
+</div>
 
   <div class="field">
     <%= ff.label :modelo %>
@@ -149,6 +149,11 @@
   <div class="field">
     <%= form.label :Status %>
     <%= select(:orcamento, :status,[ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
+  </div>
+
+   <div class="field">
+    <%= label_tag :ocorrência %>
+    <%= text_area_tag :ocorrencia, nil, rows: 10, cols: 25 %>
   </div>
 
 
