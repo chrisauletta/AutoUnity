@@ -7,7 +7,7 @@
 <div class="span16">
 <div class="seta_user">
   
-  <%if @orcamento.user_id == nil%>
+  <%if @orcamento.user_id == 0%>
     <%if @current_user.cargo == "mecanico"%>
     <h3> Voce é o responsavel por este orçamento?</h3>
     <%= link_to 'Click Aqui', seta_user_path(@orcamento), method: :post %>
@@ -54,8 +54,10 @@ Quilometragem:
 </div>
 </div>
 
+<div id="modal">
 <%= render 'orcamentos/modal/modal_pecaOrc', pecas_orc: @pecas_orc %>
 <%= render 'orcamentos/modal/modal_servicoOrc', pecas_orc: @pecas_orc %>
+</div>
 
 <div id="edit">
 
@@ -85,19 +87,18 @@ Quilometragem:
               <th class="span2">Preco Total</th>
             </tr>
           </thead>
-          <%sumP = 0%>
+          <%sumP = 0.0%>
 
           <tbody>
           <%if @current_user.cargo == "mecanico"%>
               <% @orcamento.peca_orc.each do |peca_orc| %>
                 <tr>
                 <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
-                <td class="span3"><%= peca_orc.peca.nome %></td>
-                <td class="span3"><%= peca_orc.quantidade %></td>
-                <td>
+                <td class="span5"><%= peca_orc.peca.nome %></td>
+                <td class="span5"><%= peca_orc.quantidade %></td>
+                <td class="span4">
                 <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
-                </td>
-  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+                <%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
               </tr>
               <%end%>
 
@@ -109,10 +110,9 @@ Quilometragem:
                 <td class="span3"><%= peca_orc.preco_o %></td>
                 <td class="span3"><%= peca_orc.quantidade %></td>
                 <td class="span2"><%= peca_orc.preco_o * peca_orc.quantidade%></td>
-                <td>
+                <td class="span3">
                 <%= link_to 'Editar', edit_peca_orc_path(peca_orc), :remote => true %>
-                </td>
-  <td><%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+                <%= link_to 'Deletar', peca_orc, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
               </tr>
               <%end%>
 
@@ -152,8 +152,18 @@ Quilometragem:
               <th class="span4"></th>
             </tr>
           </thead>
-          <%sumS = 0%>
+          <%sumS = 0.0%>
           <tbody>
+            <%if @current_user.cargo == "mecanico"%>
+              <% @orcamento.servico_orc.each do |servico_orc| %>
+                <tr>
+                <%sumS += servico_orc.preco_s%>
+                <td class="span3"><%= servico_orc.servico.nome %></td>
+                <td class="span4"></td>
+                <td class="span4"><%= link_to 'Deletar', delete_serv_path(servico_orc), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+              </tr>
+              <%end%>
+            <%else%>
               <% @orcamento.servico_orc.each do |servico_orc| %>
                 <tr>
                 <%sumS += servico_orc.preco_s%>
@@ -161,10 +171,9 @@ Quilometragem:
                 <td class="span3"><%= servico_orc.preco_s %></td>
                 <td class="span4"></td>
                 <td class="span4"><%= link_to 'Deletar', delete_serv_path(servico_orc), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
-
               </tr>
-
               <%end%>
+            <%end%>
           </tbody>
         </table>
         </div>
@@ -179,33 +188,10 @@ Quilometragem:
 
 <div class="row">
 <div class="span4">
-<p>
-  <strong>Ocorrencia:</strong>
-  <%= @orcamento.ocorrencia %>
-</p>
-</div>
-
- <div class="row span6">
-  <div class="field">
-    <%= label_tag :diagnostico %>
-    <%= text_area_tag :diagnostico, nil, cols: 40, rows: 5, class:"estilotextarea" %>
-     <%= label_tag "Serviço Executado" %>
-    <%= text_area_tag :diagnostico, nil, cols: 40, rows: 5, class:"estilotextarea" %>
-  </div>  
-</div>
-
-  <div class="span5">
-   <div class="header-right2">
-    <h4>Valor Peças: <%=sumP%></h4>
-    <h4>Valor Serviços: <%=sumS%></h4>
-    <h3>Valor Total: <%=@orcamento.valor_total%></h3>
-  </div> 
-</div>
-
-</div>
-
-<div class="row">
-  <div class="span4">
+    <p>
+      <strong>Ocorrencia:</strong>
+      <%= @orcamento.ocorrencia %>
+    </p>
     <%=link_to status_orcamento_js_path(@orcamento), :remote => true, class:"btn btn-large" do %>
     <i class="icon-random icon-large""></i>
     Troca Status
@@ -215,16 +201,33 @@ Quilometragem:
     <i class="icon-print icon-large"></i>
     Imprimir
     <%end%>
-    <br>
-     <%= link_to report_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
-    <i class="icon-save icon-large"></i>
-    Salvar
+  
+</div>
+
+ <div class="row span6">
+  <div class="field">
+  <%= form_tag(seta_desc_path(@orcamento), method: :get, :remote => true) do %>
+    <%= label_tag "Diagnostico" %>
+    <%= text_area_tag :diagnostico, @orcamento.diagnostico, cols: 40, rows: 5, class:"estilotextarea" %>
+    <%= label_tag "Serviço Executado" %>
+    <%= text_area_tag :execucao, @orcamento.execucao, cols: 40, rows: 5, class:"estilotextarea" %>
+    <%= submit_tag "Salvar",class:"btn btn-large" %>
     <%end%>
+  </div>  
 </div>
 
-
+  <div class="span5">
+   <div class="header-right2">
+      <%if @current_user.cargo != "mecanico"%>
+    <h4>Valor Peças:R$ <%=sumP%></h4>
+    <h4>Valor Serviços:R$ <%=sumS%></h4>
+    <h3>Valor Total:R$ <%=@orcamento.valor_total%></h3>
+    <%end%>
+  </div> 
+</div>
 
 </div>
+
 
 
 </div>

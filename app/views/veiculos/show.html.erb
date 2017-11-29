@@ -25,10 +25,16 @@
   <%= @veiculo.cor %>
 </p>
 
+<% if @veiculo.cliente.cliente_f != nil %>
 <p>
-  <strong>Id cliente:</strong>
-  <%= @veiculo.cliente.nome %>
+  <strong>cliente:</strong>
+  <%= @veiculo.cliente.cliente_f.nome %> <%= @veiculo.cliente.cliente_f.sobrenome %>
 </p>
-
+<%else%>
+<p>
+  <strong>cliente:</strong>
+  <%= @veiculo.cliente.cliente_j.razao_social %>
+</p>
+<%end%>
 <%= link_to 'Edit', edit_veiculo_path(@veiculo) %> |
 <%= link_to 'Back', veiculos_path %>

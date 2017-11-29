@@ -17,7 +17,7 @@ class OrcamentosController < ApplicationController
   def new
     @orcamento = Orcamento.new
     @nome = params[:nome_p]
-    @cliente_orc = Cliente.where "nome like ?", "%#{@nome}%"
+    @cliente_orc = Cliente.all
     @cliente_search = Cliente.new
   end
 
@@ -31,6 +31,7 @@ class OrcamentosController < ApplicationController
     if params[:veiculo_id] != nil
     @orcamento = Orcamento.new(orcamento_params)
     @orcamento.valor_total = 0
+    @orcamento.user_id = 0
     @orcamento.cliente_id = Veiculo.find(params[:veiculo_id]).cliente_id
     @orcamento.veiculo_id = params[:veiculo_id]
     if @orcamento.save
@@ -121,6 +122,13 @@ end
     redirect_back fallback_location: @orcamento
   end
 
+  def seta_desc
+    set_orcamento
+    @orcamento.diagnostico =  params[:diagnostico]
+    @orcamento.execucao = params[:execucao]
+    @orcamento.save    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_orcamento
@@ -129,6 +137,6 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def orcamento_params
-      params.require(:orcamento).permit(:quilometragem, :descricao, :status)
+      params.require(:orcamento).permit(:quilometragem, :ocorrencia, :status)
     end
 end

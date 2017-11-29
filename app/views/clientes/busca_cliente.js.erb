@@ -1,2 +1,9 @@
-$('table#cliente tbody').html("<%= j render 'clientes/tabela_cliente', clientes: @cliente_search %>");
-$('table#veiculo tbody').html("<%= j render 'clientes/table/table_cliente_newVeiculo', clientes: @cliente_search %>");
+<%if @selec == "Nome"%>
+	$('table#cliente tbody').html("<%= j render 'clientes/table/tabela_cliente', clientes: @cliente_search %>");
+	$('table#veiculo tbody').html("<%= j render 'clientes/table/table_cliente_newVeiculo', clientes: @cliente_search %>");
+	$('table#table_new_orc tbody').html("<%= j render 'clientes/table/table_orcamento_cliente', cliente_orc: @cliente_search %>");
+<% elsif @selec == "Razao Social"%>
+	$('table#cliente tbody').html("<%= j render 'clientes/table/tabela_clienteR', clientes: @cliente_search %>");
+	$('table#veiculo tbody').html("<%= j render 'clientes/table/table_clienteR_newVeiculo', clientes: @cliente_search %>");
+	$('table#table_new_orc tbody').html("<%= j render 'clientes/table/table_orcamento_clienteR', cliente_orc: @cliente_search %>");
+<%end%>

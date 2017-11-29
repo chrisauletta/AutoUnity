@@ -1,0 +1,25 @@
+  <% clientes.each do |cliente| %>
+      <tr>
+        <td class="span3"><%= cliente.cliente_f.nome %> <%= cliente.cliente_f.sobrenome %></td>
+        <td class="span3"><%= cliente.telefone %></td>
+        <td class="span3"><%= cliente.celular %></td>
+        <td class="span3"><%= cliente.email %></td>
+        <td class="span3"><%= cliente.observacoes %>
+        <td class="span3">
+        <div class="btn-group">
+        <button class="btn ">Funçoes</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+        <%= link_to 'Exibir', cliente %>
+        <%= link_to 'Editar', edit_cliente_path(cliente) %>
+        <%= link_to 'Deletar', cliente, method: :delete, data: { confirm: 'Tem certeza? isso ira deletar todos os carros relacionado' } %>
+          
+      </ul>
+      </div>
+
+        </td>
+      </tr>
+    <% end %>

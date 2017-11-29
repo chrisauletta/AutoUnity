@@ -23,8 +23,9 @@
     <div class="box-content">
     <div class="row">
     <div class="span16">
-<%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
+ <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>
@@ -60,8 +61,7 @@
 
   <div class="field">
     <%= form.label :marca %>
-    <%= form.text_field :marca, id: :veiculo_marca %>
-  </div>
+<%= select(:veiculo, :marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY','Chrysler','Citroen','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','Dafra','Honda','Kawasaki']) %>  </div>
 
   <div class="field">
     <%= form.label :modelo %>
@@ -80,6 +80,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cadastrar", class:"btn btn-primary margin_form" %>
   </div>
 <% end %>

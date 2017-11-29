@@ -20,7 +20,7 @@
     <div class="span15">
 <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
           <div class="form-inline">
-          <%= select(:orcamento, :selec, [ 'Nome','Razao Social'], {include_blank: true}) %> 
+          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>

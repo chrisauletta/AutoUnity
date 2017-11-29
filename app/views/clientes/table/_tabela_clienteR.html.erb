@@ -1,12 +1,6 @@
   <% clientes.each do |cliente| %>
       <tr>
-        <td class="span3">
-        <% if cliente.cliente_f != nil %>
-        <%= cliente.cliente_f.nome %> <%= cliente.cliente_f.sobrenome %>
-        <%else%>
-        <%= cliente.cliente_j.razao_social %>
-        <%end%>
-        </td>
+        <td class="span3"><%= cliente.cliente_j.razao_social %></td>
         <td class="span3"><%= cliente.telefone %></td>
         <td class="span3"><%= cliente.celular %></td>
         <td class="span3"><%= cliente.email %></td>

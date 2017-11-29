@@ -5,4 +5,7 @@ class Veiculo < ApplicationRecord
   validates :modelo, presence: true
   validates :placa, presence: true
   validates :ano, presence: true
+
+ #before_save { self.marca = marca.upercase }
+
 end

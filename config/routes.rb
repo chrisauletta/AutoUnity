@@ -13,8 +13,11 @@ Rails.application.routes.draw do
 
 
   get "/cliente/newj" => "clientes#newj", as: :new_clientej
-
   post "/orc_edit_user/:id" => "orcamentos#seta_user", as: :seta_user
+  get "/orc_edit_desc/:id" => "orcamentos#seta_desc", as: :seta_desc
+
+ #Status Orcamento
+  post "status_orcamento/edit/:id" => "orcamentos#status_orcamento", as: :status_orcamento
 
   get "/estoque" => "estoque#index"
   post "/estoque/edit" => "estoque#salva"
@@ -65,6 +68,5 @@ Rails.application.routes.draw do
   #Financeiro
   get "/financeiro" => "financeiro#index"
 
-  #Status Orcamento
-  post "status_orcamento/edit/:id" => "orcamentos#status_orcamento", as: :status_orcamento
+ 
 end

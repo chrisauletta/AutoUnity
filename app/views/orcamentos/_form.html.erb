@@ -1,8 +1,17 @@
 <div class="alert alert-error"><%= notice %></div>
-<%= form_with(model: orcamento, local: true) do |form| %>
 
  
-<table>
+ <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_c %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+<% end %>
+
+<%= form_with(model: orcamento, local: true) do |form| %>
+<table id="table_new_orc">
   <thead>
     <tr>
       <th class="span3">Nome</th>
@@ -15,16 +24,7 @@
   </thead>
 
   <tbody>
-    <% @cliente_orc.each do |cliente| %>
-      <tr>
-        <td class="span3"><%= cliente.nome %></td>
-        <td class="span3"><%= cliente.telefone %></td>
-        <td class="span3"><%= cliente.celular %></td>
-        <td class="span3"><%= cliente.email %></td>
-        <td class="span3"><%= cliente.observacoes %>
-       <td class="span3"><%= link_to "selecione", pega_cliente_id_path(cliente),:remote => true%></td>
-      </tr>
-    <% end %>
+   
   </tbody>
 </table>
 </br>
@@ -52,8 +52,8 @@
 
 
   <div class="field">
-    <%= form.label :Descricao %>
-    <%= form.text_field :descricao, id: :orcamento_descricao %>
+    <%= form.label :Ocorrencia %>
+    <%= form.text_area :ocorrencia, id: :orcamento_ocorrencia, class:"estilotextarea" %>
   </div>
 
   <div class="field">

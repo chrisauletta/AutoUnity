@@ -1,0 +1,10 @@
+ <% cliente_orc.each do |cliente| %>
+      <tr>
+        <td class="span3"><%= cliente.cliente_f.nome %> <%= cliente.cliente_f.sobrenome %></td>
+        <td class="span3"><%= cliente.telefone %></td>
+        <td class="span3"><%= cliente.celular %></td>
+        <td class="span3"><%= cliente.email %></td>
+        <td class="span3"><%= cliente.observacoes %>
+       <td class="span3"><%= link_to "selecione", pega_cliente_id_path(cliente),:remote => true%></td>
+      </tr>
+  <% end %>

@@ -23,6 +23,10 @@
           <%= label_tag :status %>
           <%= select(:orcamento, :status, [ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
 
+
+ <%= select(:orcamento, :status, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY''Chrysler','CitroÃ«n','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','Dafra','Honda','Kawasaki'], {include_blank: true}) %>
+
+
           <%= submit_tag "Encontrar"%>
           </div>
     <% end %>

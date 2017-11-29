@@ -51,6 +51,7 @@ class ClientesController < ApplicationController
       orc.quilometragem = km
       orc.status = params[:orcamento] [:status]
       orc.ocorrencia = params[:ocorrencia]
+      orc.user_id = 0
       orc.save
       end
     redirect_to orcamentos_path, notice: "Cadastro com sucesso"
@@ -81,14 +82,12 @@ class ClientesController < ApplicationController
   end
 
   def busca_cliente
-   selec =  params[:orcamento] [:selec]
+   @selec =  params[:cli] [:selec]
    nome = params[:nome_c]
-   if selec == "Nome"
-    @cliente_search = Cliente.where "id == (select cliente_id from cliente_fs where " "nome like " "'%#{nome}%')"
-   elsif selec == "Razao Social"
+   if @selec == "Nome"
+    @cliente_search = Cliente.joins "INNER JOIN cliente_fs on cliente_fs.cliente_id = clientes.id where cliente_fs.nome like '%#{nome}%'"
+   elsif @selec == "Razao Social"
     @cliente_search = Cliente.where "id == (select cliente_id from cliente_js where " "razao_social like " "'%#{nome}%')"
-   else
-    @cliente_search = Cliente.all
    end
    #@cliente_search = Cliente.where "nome like ?", "%#{@nome}%"
     respond_to do |format|

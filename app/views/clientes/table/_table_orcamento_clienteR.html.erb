@@ -1,10 +1,10 @@
-  <% clientes.each do |cliente| %>
+ <% cliente_orc.each do |cliente| %>
       <tr>
-        <td class="span3"><%= cliente.cliente_f.nome %> <%= cliente.cliente_f.sobrenome %></td>  
+        <td class="span3"><%= cliente.cliente_j.razao_social %></td>
         <td class="span3"><%= cliente.telefone %></td>
         <td class="span3"><%= cliente.celular %></td>
         <td class="span3"><%= cliente.email %></td>
         <td class="span3"><%= cliente.observacoes %>
-        <td class="span3"><%= radio_button_tag :cliente_id, cliente.id %></td>
+       <td class="span3"><%= link_to "selecione", pega_cliente_id_path(cliente),:remote => true%></td>
       </tr>
-    <% end %>
+  <% end %>
