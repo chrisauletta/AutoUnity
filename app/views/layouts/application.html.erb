@@ -21,6 +21,9 @@
 
   </head>
      <body>
+
+     	<% if logged_in? %>
+		<%end%>
 	<div id="logo">
 <%=image_tag("logo.png", class: "img-logo")%>
 </div>
@@ -33,10 +36,8 @@
                     <div >
                         <ul class="nav">
                             <li class="dropdown">
-					<%if @current_user.cargo != "mecanico"%>
                             <%=link_to financeiro_path, class:"dropdown-toggle" do %>
 		       				Financeiro
-		       				<%end%>
 		   			<%end%>
 		   					</li>
                             

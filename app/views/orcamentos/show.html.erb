@@ -9,8 +9,8 @@
   
   <%if @orcamento.user_id == 0%>
     <%if @current_user.cargo == "mecanico"%>
-    <h3> Voce é o responsavel por este orçamento?</h3>
-    <%= link_to 'Click Aqui', seta_user_path(@orcamento), method: :post %>
+    <h3> Voce é o responsavel por este orçamento?
+    <%= link_to 'Click Aqui', seta_user_path(@orcamento), method: :post %></h3>
     <%end%> 
     <%else%>
     <div class="form-inline margin_form_g">

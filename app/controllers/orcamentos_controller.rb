@@ -1,5 +1,6 @@
 class OrcamentosController < ApplicationController
   before_action :set_orcamento, only: [:show, :edit, :update, :destroy]
+  #before_action :authorize, except: [:create,:show, :edit, :update, :destroy, :create, :update, :busca_orcamento, :busca_orcamento_status]
 
   # GET /orcamentos
   def index
@@ -35,7 +36,7 @@ class OrcamentosController < ApplicationController
     @orcamento.cliente_id = Veiculo.find(params[:veiculo_id]).cliente_id
     @orcamento.veiculo_id = params[:veiculo_id]
     if @orcamento.save
-      redirect_to @orcamento, notice: 'Orcamento was successfully created.'
+      redirect_to @orcamento, notice: 'Orcamento craido com sucesso.'
     else
       redirect_to new_orcamento_path, notice: @orcamento.errors.full_messages
     end
@@ -47,7 +48,7 @@ class OrcamentosController < ApplicationController
   # PATCH/PUT /orcamentos/1
   def update
     if @orcamento.update(orcamento_params)
-      redirect_to @orcamento, notice: 'Orcamento was successfully updated.'
+      redirect_to @orcamento, notice: 'Orcamento Atualizado com sucesso.'
     else
       render :edit
     end
@@ -56,7 +57,7 @@ class OrcamentosController < ApplicationController
   # DELETE /orcamentos/1
   def destroy
     @orcamento.destroy
-    redirect_to orcamentos_url, notice: 'Orcamento was successfully destroyed.'
+    redirect_to orcamentos_url, notice: 'Orçamento criado com sucesso.'
   end
 
   def busca_orcamento_status
