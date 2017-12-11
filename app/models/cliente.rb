@@ -9,9 +9,5 @@ class Cliente < ApplicationRecord
 	accepts_nested_attributes_for :cliente_j, :allow_destroy => true 	
 
 	validates :celular, presence: true
-	validates :rua, presence: true
-	validates :numero, presence: true
-	validates :bairro, presence: true
-	validates :cidade, presence: true
 	
 end

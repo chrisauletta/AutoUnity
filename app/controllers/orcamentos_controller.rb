@@ -63,9 +63,11 @@ class OrcamentosController < ApplicationController
   def busca_orcamento_status
 
   status = params[:orcamento] [:status]  
-
+  if status != ""
       @orc = Orcamento.where "status = " "'#{status}'"
-
+  else 
+    @orc = Orcamento.all
+  end
     respond_to do |format|
     format.html 
     format.js 

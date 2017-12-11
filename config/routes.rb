@@ -46,6 +46,8 @@ Rails.application.routes.draw do
 
   get "/busca_pecas" => "pecas#busca_pecas", as: :pega_peca
 
+  get "/busca_fornecedors" => "fornecedors#busca_fornecedors", as: :pega_fornecedors
+
 #chama o modal edit peca orcamento
   get "/edit_peca_orc/:id" => "orcamentos#edit_peca_orc", as: :edit_peca_orc
 

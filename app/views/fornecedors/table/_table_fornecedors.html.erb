@@ -1,0 +1,11 @@
+ <% fornecedors.each do |fornecedor| %>
+      <tr>
+        <td class="span3"><%= fornecedor.nome_fornecedor %></td>
+        <td class="span3"><%= fornecedor.ramo %></td>
+        <td class="span3"><%= fornecedor.vendedor %></td>
+        <td class="span3"><%= fornecedor.telefone %></td>
+        <td class="span3"><%= link_to 'Exibir', fornecedor, class:"btn btn-small btn-default" %>
+        <%= link_to 'Editar', edit_fornecedor_path(fornecedor), class:"btn btn-small btn-primary" %>
+        <%= link_to 'Deletar', fornecedor, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-small btn-danger" %></td>
+      </tr>
+    <% end %>

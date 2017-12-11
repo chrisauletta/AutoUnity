@@ -45,6 +45,17 @@ class FornecedorsController < ApplicationController
     redirect_to fornecedors_url, notice: 'Fornecedor was successfully destroyed.'
   end
 
+  def busca_fornecedors
+  @nome = params[:nome_p]
+  @fornecedors_search = Fornecedor.where "nome_fornecedor like ?", "%#{@nome}%"
+   #@fornecedors_search = Fornecedor.all
+  puts @nome
+    respond_to do |format|
+      format.html 
+      format.js
+    end  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fornecedor
@@ -53,6 +64,6 @@ class FornecedorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def fornecedor_params
-      params.require(:fornecedor).permit(:nome_fornecedor, :ramo, :vendedor, :telefone)
+      params.require(:fornecedor).permit(:nome_fornecedor, :ramo, :vendedor, :telefone,:rua, :numero, :bairro, :cidade, :uf, :cep, :complemento)
     end
 end

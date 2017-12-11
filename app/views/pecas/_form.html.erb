@@ -26,10 +26,12 @@
     <%= form.text_field :fabricante, id: :peca_fabricante %>
   </div>
 
-  <div class="field">
-     <%= form.label "marca veiculo"%>
-    <%= form.text_field :marca_carro, id: :peca_marca%>
+    <div class="field">
+    <%= form.label "Marca Veiculo"%>
+    <%= form.select(:marca_carro, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY','Chrysler','Citroen','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  
+    </div>
 
+  <div class="field">
      <%= form.label "modelo veiculo"%>
     <%= form.text_field :modelo_carro, id: :peca_modelo %>
   </div>

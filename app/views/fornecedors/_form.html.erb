@@ -31,6 +31,41 @@
     <%= form.text_field :telefone, id: :fornecedor_telefone %>
   </div>
 
+  <div class="form-group">
+    <label>CEP</label>
+    <%= form.text_field :cep, id: :fornecedor_cep %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rua %>
+    <%= form.text_field :rua, id: :fornecedor_rua %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.text_field :numero, id: :fornecedor_numero %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :fornecedor_bairro %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade, id: :fornecedor_cidade %>
+  </div>
+
+  <div class="form-group">
+    <label>UF</label>
+    <%= form.text_field :uf, id: :fornecedor_uf %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :complemento %>
+    <%= form.text_field :complemento, id: :fornecedor_complemento %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Cadastrar", class:"btn btn-primary"%>
   </div>

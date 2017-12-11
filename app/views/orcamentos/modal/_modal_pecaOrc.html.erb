@@ -5,6 +5,8 @@
     <h3 id="myModalLabel">Relacionar Peças</h3>
   </div>
   <div class="modal-body">
+<% if logged_in? %>
+<%end%>
 
   
       <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
@@ -45,12 +47,20 @@
  </div>
   <div class="modal-footer">
   <div class="form-inline">
+    <%if @current_user.cargo == "mecanico"%>
+
     <%= label_tag :Quantidade %>
-    <%= text_field_tag :quantidade%>
+    <%= text_field_tag :quantidade, "0.0", class:"uneditable-input"%>
 
     <%= label_tag :Preco %>
-    <%= text_field_tag :preco_o%>
+    <%= text_field_tag :preco_o,"0.0", class:"uneditable-input"%>
+<%else%>
+<%= label_tag :Quantidade %>
+    <%= text_field_tag :quantidade, "0.0"%>
 
+    <%= label_tag :Preco %>
+    <%= text_field_tag :preco_o,"0.0"%>
+<%end%>
       <%= submit_tag "Ok", class:"btn btn-primary"%>
     </div>
   </div>

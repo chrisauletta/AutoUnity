@@ -1,6 +1,6 @@
 <div class="span16">
 
-<%= pie_chart Orcamento.group(:status).count, id: "pie_status" ,legend: "left"%>
+<%= pie_chart Orcamento.where("status != " "'9. Finalizado'").group(:status).count, id: "pie_status" ,legend: "left"%>
 </br>
 </br>
 
