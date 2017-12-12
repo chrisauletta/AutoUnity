@@ -110,6 +110,15 @@ end
   end
   end
 
+def edit_serv_orc
+  @servico_edit = ServicoOrc.find(params[:id])
+  respond_to do |format|
+    format.html 
+    format.js 
+  end
+  end
+
+
   def status_orcamento_js
   @orc = Orcamento.find(params[:id])
     respond_to do |format|

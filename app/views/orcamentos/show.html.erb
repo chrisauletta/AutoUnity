@@ -169,7 +169,9 @@ Quilometragem:
                 <td class="span3"><%= servico_orc.servico.nome %></td>
                 <td class="span3">R$<%= servico_orc.preco_s %></td>
                 <td class="span4"></td>
-                <td class="span4"><%= link_to 'Deletar', delete_serv_path(servico_orc), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+                <td class="span4">
+                <%= link_to 'Editar', edit_serv_orc_path(servico_orc), :remote => true %>
+                <%= link_to 'Deletar', delete_serv_path(servico_orc), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
               </tr>
               <%end%>
             <%end%>

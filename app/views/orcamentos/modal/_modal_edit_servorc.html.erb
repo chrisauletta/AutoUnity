@@ -1,0 +1,17 @@
+<div id="modalServEdit" class="modal hide fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Editar Peça</h3>
+  </div>
+  <div class="modal-body">
+
+<%= form_tag(serv_edit_orc_path(servico), method: :post) do %>
+          
+    <%= label_tag :Preco %>
+    <%= text_field_tag :preco_s, servico.preco_s%>
+    </br>
+    <%= submit_tag "Editar"%>
+<%end%>
+
+</div>

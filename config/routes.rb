@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post "/peca_orc/:id" => "peca_orc#inclui_peca", as: :inclui_peca
   delete "/peca_orc/:id" => "peca_orc#destroy"
   post "/peca_orc/edit/:id" => "peca_orc#edit", as: :peca_edit_orc 
+  post "/serv_orc/edit/:id" => "servico_orc#edit", as: :serv_edit_orc 
 
 #Servivo Orcamento
   post "/servico_orc/:id" => "servico_orc#inclui_servico", as: :inclui_servico
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
 
 #chama o modal edit peca orcamento
   get "/edit_peca_orc/:id" => "orcamentos#edit_peca_orc", as: :edit_peca_orc
+  get "/edit_serv_orc/:id" => "orcamentos#edit_serv_orc", as: :edit_serv_orc
 
 #chama modal edit status orcamento
   get "/status_orcamento/:id" => "orcamentos#status_orcamento_js", as: :status_orcamento_js
