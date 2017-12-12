@@ -30,18 +30,18 @@
       <div class="navbar">
 
             <div class="navbar-inner">
-                <div class="container">
-                    <a href="dashboard.html" class="brand"><i class="icon-leaf">Central de Controle</i></a>
-                    
-                    <div >
+                	<%if @current_user.cargo == "mecanico"%>
+                    	<%else%>
+
                         <ul class="nav">
-                            <li class="dropdown">
-                            <%=link_to financeiro_path, class:"dropdown-toggle" do %>
+                        <li class="dropdown">
+                    <%=link_to financeiro_path, class:"dropdown-toggle" do %>
 		       				Financeiro
-		   			<%end%>
-		   					</li>
-                            
+		   				<%end%>
+		   				</li>
+                          
                         </ul>
+                        <%end%>
                         <ul class="nav pull-right">
                             <li>
                                 <a href="login.html" class="brand">Auto Unity</a>
@@ -73,7 +73,7 @@
 		                                    <li>     
 		                            <%=link_to veiculos_path do %>
 		          					<i class="fa fa-car icon-large"></i>
-		          					Veiculo
+		          					Veículo
 		          					<%end%>
 		                                </li>
 		                                    <li>     
@@ -82,7 +82,10 @@
 		          					Orçamento
 		          					<%end%>
 		                                </li>
-		                                    <li>     
+		                                	<li>     
+		                            <%if @current_user.cargo == "mecanico"%>
+
+		                            <%else%>
 		                            <%=link_to pecas_path do %>
 		          					<i class="fa fa-cubes icon-large"></i>
 		          					Peças
@@ -101,6 +104,7 @@
 		          					<%end%>
 		                                </li>
 		                        </ul>
+		                        <%end%>
 		                </div>
 		            </div>
 		                   <section class="nav nav-page">

@@ -1,3 +1,4 @@
+<div class="span16">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,12 +28,13 @@
 
 <% if @veiculo.cliente.cliente_f != nil %>
 <p>
-  <strong>cliente:</strong>
+  <strong>Cliente:</strong>
   <%= @veiculo.cliente.cliente_f.nome %> <%= @veiculo.cliente.cliente_f.sobrenome %>
 </p>
 <%else%>
 <p>
-  <strong>cliente:</strong>
+  <strong>Cliente:</strong>
   <%= @veiculo.cliente.cliente_j.razao_social %>
 </p>
 <%end%>
+</div>

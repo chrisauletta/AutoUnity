@@ -1,6 +1,6 @@
 <div class="span16">
 <p id="notice"><%= notice %></p>
-<%= link_to 'Novo Orcamento', new_orcamento_path, class:"btn btn-primary margin_form" %>
+<%= link_to 'Novo Orçamento', new_orcamento_path, class:"btn btn-primary margin_form" %>
 
 <div class="box pattern pattern-sandstone">
 
@@ -17,10 +17,10 @@
       <div class="span15">
          <%= form_tag(pega_orc_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
-          <%= select(:orcamento, :selec, [ 'Nome','Razao Social'], {include_blank: true}) %>
+          <%= select(:orcamento, :selec, [ 'Nome','Razão Social'], {include_blank: true}) %>
           <%= text_field_tag :nome %>
           <%= label_tag :status %>
-          <%= select(:orcamento, :status, ['1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
+          <%= select(:orcamento, :status, ['1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
 
           <%= submit_tag "Encontrar"%>
           </div>
@@ -30,10 +30,9 @@
     <tr>
       <th class="span2", onclick="sortTable(0)">Status</th>
       <th class="span3">Cliente</th>
-      <th class="span2">Veiculo</th>
-      <th class="span2">Placa</th>
-      <th class="span2">Quilometragem</th>
-      <th class="span2">Valor total</th>
+      <th class="span2">Veículo</th>
+      <th class="span3">Placa</th>
+      <th class="span3">Quilometragem</th>
       <th class="span4"></th>
     </tr>
   </thead>

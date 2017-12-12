@@ -72,7 +72,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :observacoes %>
+    <label>Observações</label>
     <%= form.text_field :observacoes, id: :cliente_observacoes %>
   </div>
 
@@ -87,7 +87,7 @@
   </div>
   
   <div class="form-group">
-    <%= form.label :numero %>
+    <%= form.label :número %>
     <%= form.text_field :numero, id: :endereco_numero %>
   </div>
 
@@ -158,7 +158,7 @@
 
   <div class="field">
     <%= form.label :Status %>
-    <%= select(:orcamento, :status,[ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
+    <%= select(:orcamento, :status,[ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
   </div>
 
  <div class="field">

@@ -19,7 +19,7 @@
           <thead>
             <tr>
               <th class="span4">Nome</th>
-              <th class="span4">Preco</th>
+              <th class="span4">Preço</th>
               <th class="span4">Selecione</th>
             </tr>
           </thead>
@@ -28,7 +28,7 @@
        <% @servico_orc.each do |servico| %>
                     <tr>
                     <td class="span4"><%= servico.nome %></td>
-                    <td class="span4"><%= servico.preco %></td>
+                    <td class="span4">R$<%= servico.preco %></td>
                     <td class="span4"><%= radio_button_tag :servico_id, servico.id %></td>
                   </tr>
        <% end %>
@@ -42,10 +42,14 @@
  </div>
   <div class="modal-footer">
   <div class="form-inline">
+   <%if @current_user.cargo == "mecanico"%>
 
-    <%= label_tag :Preco %>
+   <%else%>
+
+
+    <%= label_tag :Preço %>
     <%= text_field_tag :preco_s%>
-
+<%end%>
       <%= submit_tag "Ok", class:"btn btn-primary"%>
     </div>
   </div>

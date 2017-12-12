@@ -1,8 +1,8 @@
 <div class="span16">
 
-<%= link_to 'Novo Cliente Fisico', new_cliente_path, class: "btn btn-primary" %>
+<%= link_to 'Novo Cliente Físico', new_cliente_path, class: "btn btn-primary" %>
 
-<%= link_to 'Novo Cliente Juridico', new_clientej_path, class: "btn btn-primary" %>
+<%= link_to 'Novo Cliente Jurídico', new_clientej_path, class: "btn btn-primary" %>
 
 <br>
 <p id="notice"><%= notice %></p>
@@ -20,7 +20,7 @@
     <div class="span15">
 <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
           <div class="form-inline">
-          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
+          <%= select(:cli, :selec, [ 'Nome','Razão Social']) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>
@@ -32,8 +32,8 @@
       <th class="span3">Nome</th>
       <th class="span3">Telefone</th>
       <th class="span3">Celular</th>
-      <th class="span3">Email</th>
-      <th class="span3">Observacoes</th>
+      <th class="span3">E-mail</th>
+      <th class="span3">Observações</th>
       <th class="span3"></th>
     </tr>
   </thead>

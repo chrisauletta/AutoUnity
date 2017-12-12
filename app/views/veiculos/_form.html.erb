@@ -1,3 +1,4 @@
+<div class="span16">
 <p id="notice"><%= notice %></p>
 
      <% if veiculo.errors.any? %>
@@ -22,10 +23,10 @@
 
     <div class="box-content">
     <div class="row">
-    <div class="span16">
+    <div class="span15">
  <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
           <div class="form-inline">
-          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
+          <%= select(:cli, :selec, [ 'Nome','Razão Social']) %> 
           <%= label_tag :nome %>
           <%= text_field_tag :nome_c %>
           <%= submit_tag "Encontrar"%>
@@ -39,8 +40,8 @@
       <th class="span3">Nome</th>
       <th class="span3">Telefone</th>
       <th class="span3">Celular</th>
-      <th class="span3">Email</th>
-      <th class="span3">Observacoes</th>
+      <th class="span3">E-mail</th>
+      <th class="span3">Observações</th>
       <th class="span3"></th>
     </tr>
   </thead>
@@ -83,3 +84,4 @@
     <%= form.submit "Cadastrar", class:"btn btn-primary margin_form" %>
   </div>
 <% end %>
+</div>

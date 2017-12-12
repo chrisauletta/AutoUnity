@@ -21,7 +21,7 @@
          <%= form_tag(pega_orc_status_path, method: :get, :remote => true) do %>
           <div class="form-inline"> 
           <%= label_tag :status %>
-          <%= select(:orcamento, :status, [ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
+          <%= select(:orcamento, :status, [ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
 
 
           <%= submit_tag "Encontrar"%>
@@ -32,10 +32,9 @@
     <tr>
       <th class="span2", onclick="sortTable(0)">Status</th>
       <th class="span3">Cliente</th>
-      <th class="span2">Veiculo</th>
-      <th class="span2">Placa</th>
-      <th class="span2">Quilometragem</th>
-      <th class="span2">Valor total</th>
+      <th class="span2">Veículo</th>
+      <th class="span3">Placa</th>
+      <th class="span3">Quilometragem</th>
       <th class="span4"></th>
     </tr>
   </thead>
@@ -44,6 +43,7 @@
 
   </tbody>
 </table>
+
 </div><!-- Fecha span14-->
 </div><!-- Fecha row-->
 </div><!-- Fecha box content-->

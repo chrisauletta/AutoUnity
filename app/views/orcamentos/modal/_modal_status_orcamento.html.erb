@@ -2,7 +2,7 @@
   <div class="modal-header">
 
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Status Orcamento</h3>
+    <h3 id="myModalLabel">Status Orçamento</h3>
   </div>
   <div class="modal-body">
 
@@ -13,7 +13,7 @@
     Status Atual: <%=orc.status%>
     </br>
     </br>    
-    <%= select(:orcamento, :status, [ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento']) %>
+    <%= select(:orcamento, :status, [ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento']) %>
   </div>
 
       <%= submit_tag "Editar"%>

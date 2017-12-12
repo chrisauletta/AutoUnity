@@ -58,12 +58,12 @@
   
 
   <div class="form-group">
-    <%= form.label :email %>
+    <label>E-mail</label>
     <%= form.text_field :email, id: :cliente_email %>
   </div>
 
   <div class="form-group">
-    <%= form.label :observacoes %>
+    <label>Observações</label>
     <%= form.text_field :observacoes, id: :cliente_observacoes %>
   </div>
 
@@ -115,7 +115,7 @@
 
   <div class="field">
       <%= ff.label :marca %>
-  <%= ff.select(:marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY''Chrysler','CitroÃ«n','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  
+  <%= ff.select(:marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY','Chrysler','Citroen','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  
 </div>
 
   <div class="field">
@@ -148,7 +148,7 @@
 
   <div class="field">
     <%= form.label :Status %>
-    <%= select(:orcamento, :status,[ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
+    <%= select(:orcamento, :status,[ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'])%>
   </div>
 
    <div class="field">

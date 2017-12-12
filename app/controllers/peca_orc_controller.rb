@@ -10,8 +10,15 @@ class PecaOrcController < ApplicationController
 		peca = PecaOrc.new
 		peca.orcamento_id = params[:id]
 		peca.peca_id =  params[:peca_id]
+		if logged_in?
+		end 
+		if @current_user.cargo == "mecanico"
+		peca.quantidade = 0.0
+		peca.preco_o = 0.0
+		else
 		peca.quantidade = params[:quantidade]
 		peca.preco_o = params[:preco_o] 
+		end 
 		precov = peca.preco_o * peca.quantidade
 		o  = Orcamento.find(params[:id])
 		o.valor_total += precov

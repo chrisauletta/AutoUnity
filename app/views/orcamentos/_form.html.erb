@@ -1,4 +1,5 @@
-<div class="alert alert-error"><%= notice %></div>
+<div class="span16">
+<%= notice %>
 
  
  <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
@@ -17,8 +18,8 @@
       <th class="span3">Nome</th>
       <th class="span3">Telefone</th>
       <th class="span3">Celular</th>
-      <th class="span3">Email</th>
-      <th class="span3">Observacoes</th>
+      <th class="span3">E-mail</th>
+      <th class="span3">Observações</th>
       <th class="span3"></th>
     </tr>
   </thead>
@@ -52,17 +53,18 @@
 
 
   <div class="field">
-    <%= form.label :Ocorrencia %>
+    <%= form.label :Ocorrência %>
     <%= form.text_area :ocorrencia, id: :orcamento_ocorrencia, class:"estilotextarea" %>
   </div>
 
   <div class="field">
     <%= form.label :Status %>
-    <%= select(:orcamento, :status, [ '1. Analise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento']) %>
+    <%= select(:orcamento, :status, [ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento']) %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Criar Orçamento" %>
   </div>
 <% end %>
+</div>
