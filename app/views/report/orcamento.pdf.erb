@@ -132,6 +132,7 @@ Razao Social:
 
 <hr>
 
+      <%if @current_user.cargo != "mecanico"%>
 
     <table style="width: 90%">
       <caption> Relaçao de Pecas</caption>
@@ -182,6 +183,52 @@ Razao Social:
           </tbody>
         </table>
 
+        <%else%>
+        
+    <table style="width: 90%">
+      <caption> Relaçao de Pecas</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Qtd.</th>
+            </tr>
+          </thead>
+          <%sumP = 0.0%>
+
+          <tbody>
+         <% @orcamento.peca_orc.each do |peca_orc| %>
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
+                <tr>
+                <td class="span3"><%= peca_orc.peca.nome %></td>
+                <td class="span1"><%= peca_orc.quantidade %></td>
+                </tr>
+          <%end%>
+          </tbody>
+        </table>
+
+</br>
+ <table style="width: 90%">
+      <caption> Relaçao de Serviços</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+            </tr>
+          </thead>
+          <%sumS = 0.0%>
+
+          <tbody>
+        <% @orcamento.servico_orc.each do |servico_orc| %>
+                <%sumS += servico_orc.preco_s%>
+                <tr>
+                <td class="span3"><%= servico_orc.servico.nome %></td>
+              </tr>
+        <%end%>
+          </tbody>
+        </table>
+
+        <%end%>
         </br>
         <hr>
         </br>

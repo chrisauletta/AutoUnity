@@ -30,18 +30,17 @@
       <div class="navbar">
 
             <div class="navbar-inner">
-                	<%if @current_user.cargo == "mecanico"%>
-                    	<%else%>
-
+                <div class="container">
+                    
+                    <div >
                         <ul class="nav">
-                        <li class="dropdown">
-                    <%=link_to financeiro_path, class:"dropdown-toggle" do %>
+                            <li class="dropdown">
+                            <%=link_to financeiro_path, class:"dropdown-toggle" do %>
 		       				Financeiro
-		   				<%end%>
-		   				</li>
-                          
+		   			<%end%>
+		   					</li>
+                            
                         </ul>
-                        <%end%>
                         <ul class="nav pull-right">
                             <li>
                                 <a href="login.html" class="brand">Auto Unity</a>
@@ -110,7 +109,7 @@
 		        <section class="nav nav-page">
 			        <div class="container">
 			            <div class="row">
-			                <div class="span3">
+			                <div class="span7">
 			                  <%= render 'layouts/header' %> 
 			                </div>
 			                <div class="page-nav-options">

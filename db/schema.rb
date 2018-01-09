@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208135513) do
+ActiveRecord::Schema.define(version: 20171220195255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20171208135513) do
     t.integer "fornecedor_id"
     t.string "marca_carro"
     t.string "modelo_carro"
+    t.integer "ano"
   end
 
   create_table "servico_orcs", force: :cascade do |t|

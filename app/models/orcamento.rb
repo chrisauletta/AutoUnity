@@ -11,7 +11,6 @@ class Orcamento < ApplicationRecord
 
   validates :status, presence: true
   validates :quilometragem, presence: true
-validates :user_id, presence: false
+  validates :user_id, presence: false
  
-
 end

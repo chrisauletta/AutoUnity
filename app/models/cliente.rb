@@ -10,4 +10,13 @@ class Cliente < ApplicationRecord
 
 	validates :celular, presence: true
 	
+	before_save {self.rua = rua.upcase}
+	before_save {self.bairro = bairro.upcase}
+	before_save {self.cidade = cidade.upcase}
+	before_save {self.uf = uf.upcase}
+	before_save {self.cep = cep.upcase}
+	before_save {self.complemento = complemento.upcase}
+	before_save {self.observacoes = observacoes.upcase}
+
+
 end
