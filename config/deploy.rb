@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "autounity"
-set :repo_url, "git@gitlab.com:chris.auletta/autounity.git"
+set :repo_url, "git@github.com:chrisauletta/AutoUnity.git"
 
 set :deploy_to, "/var/www/autounity"
 append :linked_files, "config/database.yml", "config/storage.yml", "config/master.key"
