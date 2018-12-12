@@ -13,7 +13,6 @@ gem 'listen'
 
 gem 'jquery'
 
-gem 'therubyracer'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
@@ -38,3 +37,9 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'bcrypt'
 
 gem 'pry-byebug'
+
+gem "capistrano", "~> 3.10", require: false
+gem "capistrano-rails", "~> 1.3", require: false
+gem 'capistrano3-puma', require: false
+gem 'capistrano-rvm', require: false
+gem 'capistrano-yarn'
