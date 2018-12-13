@@ -38,7 +38,6 @@ gem 'bcrypt'
 
 gem 'pry-byebug'
 
-gem 'uglifier'
 
 gem "capistrano", "~> 3.10", require: false
 gem "capistrano-rails", "~> 1.3", require: false
