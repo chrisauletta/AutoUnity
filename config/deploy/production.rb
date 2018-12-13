@@ -60,7 +60,7 @@
 #     # password: "please use keys"
 #   }
 
-set :branch, 'master'
+set :branch, 'servidor'
 set :server_address, '198.199.70.39'
 ask(:password, nil, echo: false)
 server fetch(:server_address), user: "deploy", roles: %w{app db web}
